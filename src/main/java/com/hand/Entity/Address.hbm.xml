@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hand.Entity.Address" table="address" catalog="d2db">
+        <id name="addressId" type="int">
+            <column name="address_id" />
+            <generator class="foreign">
+                <param name="property">customer</param>
+            </generator>
+        </id>
+        <one-to-one name="customer" class="com.hand.Entity.Customer" constrained="true"></one-to-one>
+        <property name="country" type="string">
+            <column name="country" length="20" not-null="true" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="20" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="20" />
+        </property>
+        <property name="addressLine1" type="string">
+            <column name="address_line1" length="100" />
+        </property>
+        <property name="addressLine2" type="string">
+            <column name="address_line2" length="100" />
+        </property>
+        <property name="postcode" type="string">
+            <column name="postcode" length="15" />
+        </property>
+        <property name="portOfDestination" type="string">
+            <column name="port_of_destination" length="20" not-null="true" />
+        </property>
+        <property name="shippingMark" type="string">
+            <column name="shipping_mark" length="100" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="6" />
+        </property>
+        <property name="inactuveDate" type="timestamp">
+            <column name="inactuve_date" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

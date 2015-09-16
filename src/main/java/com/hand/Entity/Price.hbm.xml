@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hand.Entity.Price" table="price" catalog="d2db">
+        <id name="priceId" type="int">
+            <column name="price_id" />
+            <generator class="foreign">
+                <param name="property">priceconfig</param>
+            </generator>
+        </id>
+        <one-to-one name="priceconfig" class="com.hand.Entity.Priceconfig" constrained="true"></one-to-one>
+        <property name="plCustCode" type="string">
+            <column name="pl_cust_code" length="10" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="8" not-null="true" />
+        </property>
+        <property name="plYhItem" type="string">
+            <column name="pl_yh_item" length="20" not-null="true" />
+        </property>
+        <property name="effectiveDateFrom" type="timestamp">
+            <column name="effective_date_from" length="19" />
+        </property>
+        <property name="effectiveDateTo" type="timestamp">
+            <column name="effective_date_to" length="19" />
+        </property>
+        <property name="userDef1" type="string">
+            <column name="user_def1" length="20" />
+        </property>
+        <property name="userDef2" type="string">
+            <column name="user_def2" length="20" />
+        </property>
+        <property name="userDef3" type="string">
+            <column name="user_def3" length="20" />
+        </property>
+        <property name="userDef4" type="string">
+            <column name="user_def4" length="20" />
+        </property>
+        <property name="userDef5" type="string">
+            <column name="user_def5" length="20" />
+        </property>
+        <property name="userDef6" type="string">
+            <column name="user_def6" length="20" />
+        </property>
+        <property name="userDef7" type="string">
+            <column name="user_def7" length="20" />
+        </property>
+        <property name="userDef8" type="string">
+            <column name="user_def8" length="20" />
+        </property>
+        <property name="userDef9" type="string">
+            <column name="user_def9" length="20" />
+        </property>
+        <property name="userDef10" type="string">
+            <column name="user_def10" length="20" />
+        </property>
+        <property name="userDef11" type="string">
+            <column name="user_def11" length="20" />
+        </property>
+        <property name="userDef12" type="string">
+            <column name="user_def12" length="20" />
+        </property>
+        <property name="userDef13" type="string">
+            <column name="user_def13" length="20" />
+        </property>
+        <property name="userDef14" type="string">
+            <column name="user_def14" length="20" />
+        </property>
+        <property name="userDef15" type="string">
+            <column name="user_def15" length="20" />
+        </property>
+        <property name="userDef16" type="string">
+            <column name="user_def16" length="20" />
+        </property>
+        <property name="userDef17" type="string">
+            <column name="user_def17" length="20" />
+        </property>
+        <property name="userDef18" type="string">
+            <column name="user_def18" length="20" />
+        </property>
+        <property name="userDef19" type="string">
+            <column name="user_def19" length="20" />
+        </property>
+        <property name="userDef20" type="string">
+            <column name="user_def20" length="20" />
+        </property>
+        <property name="userDef21" type="string">
+            <column name="user_def21" length="20" />
+        </property>
+        <property name="userDef22" type="string">
+            <column name="user_def22" length="20" />
+        </property>
+        <property name="userDef23" type="string">
+            <column name="user_def23" length="20" />
+        </property>
+        <property name="userDef24" type="string">
+            <column name="user_def24" length="20" />
+        </property>
+        <property name="userDef25" type="string">
+            <column name="user_def25" length="20" />
+        </property>
+        <property name="userDef26" type="string">
+            <column name="user_def26" length="20" />
+        </property>
+        <property name="userDef27" type="string">
+            <column name="user_def27" length="20" />
+        </property>
+        <property name="userDef28" type="string">
+            <column name="user_def28" length="20" />
+        </property>
+        <property name="userDef29" type="string">
+            <column name="user_def29" length="20" />
+        </property>
+        <property name="userDef30" type="string">
+            <column name="user_def30" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

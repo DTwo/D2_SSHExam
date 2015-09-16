@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hand.Entity.Customer" table="customer" catalog="d2db">
+        <id name="customerId" type="java.lang.Integer">
+            <column name="customer_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="organization" class="com.hand.Entity.Organization" fetch="select">
+            <column name="organization_id" not-null="true" />
+        </many-to-one>
+        <property name="customerCode" type="string">
+            <column name="customer_code" length="120" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="8" not-null="true" />
+        </property>
+        <property name="groupCompany" type="string">
+            <column name="Group_company" length="10" />
+        </property>
+        <property name="corporation" type="string">
+            <column name="Corporation" length="10" />
+        </property>
+        <set name="payments" table="payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_id" not-null="true" />
+            </key>
+            <one-to-many class="com.hand.Entity.Payment" />
+        </set>
+        <set name="omSpecialDiscounts" table="om_special_discount" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_id" not-null="true" />
+            </key>
+            <one-to-many class="com.hand.Entity.OmSpecialDiscount" />
+        </set>
+        <one-to-one name="address" class="com.hand.Entity.Address"></one-to-one>
+        <one-to-one name="linkman" class="com.hand.Entity.Linkman"></one-to-one>
+        <set name="onDiscountAppliedRecordses" table="on_discount_applied_records" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_id" not-null="true" />
+            </key>
+            <one-to-many class="com.hand.Entity.OnDiscountAppliedRecords" />
+        </set>
+        <set name="omNormalDiscounts" table="om_normal_discount" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_id" not-null="true" />
+            </key>
+            <one-to-many class="com.hand.Entity.OmNormalDiscount" />
+        </set>
+        <one-to-one name="priceconfig" class="com.hand.Entity.Priceconfig"></one-to-one>
+    </class>
+</hibernate-mapping>

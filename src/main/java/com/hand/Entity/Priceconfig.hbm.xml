@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hand.Entity.Priceconfig" table="priceconfig" catalog="d2db">
+        <id name="priceConfigId" type="int">
+            <column name="price_config_id" />
+            <generator class="foreign">
+                <param name="property">customer</param>
+            </generator>
+        </id>
+        <one-to-one name="customer" class="com.hand.Entity.Customer" constrained="true"></one-to-one>
+        <property name="custCode" type="string">
+            <column name="cust_code" length="120" not-null="true" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="8" not-null="true" />
+        </property>
+        <property name="displayName" type="string">
+            <column name="display_name" length="30" />
+        </property>
+        <property name="priveListCol" type="string">
+            <column name="prive_list_col" length="30" not-null="true" />
+        </property>
+        <property name="excelCol" type="java.lang.Integer">
+            <column name="excel_col" />
+        </property>
+        <property name="activity" type="string">
+            <column name="activity" length="2" not-null="true" />
+        </property>
+        <property name="priceId" type="int">
+            <column name="price_id" not-null="true" />
+        </property>
+        <one-to-one name="price" class="com.hand.Entity.Price"></one-to-one>
+    </class>
+</hibernate-mapping>

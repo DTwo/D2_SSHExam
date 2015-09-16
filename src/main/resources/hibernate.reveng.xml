@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="d2test" match-name="address"/>
+  <table-filter match-catalog="d2test" match-name="customer"/>
+  <table-filter match-catalog="d2test" match-name="discount_applied_records"/>
+  <table-filter match-catalog="d2test" match-name="linkman"/>
+  <table-filter match-catalog="d2test" match-name="normal_discount"/>
+  <table-filter match-catalog="d2test" match-name="organization"/>
+  <table-filter match-catalog="d2test" match-name="payment"/>
+  <table-filter match-catalog="d2test" match-name="price_config"/>
+  <table-filter match-catalog="d2test" match-name="price_list"/>
+  <table-filter match-catalog="d2test" match-name="special_discount"/>
+</hibernate-reverse-engineering>

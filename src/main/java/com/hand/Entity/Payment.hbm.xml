@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hand.Entity.Payment" table="payment" catalog="d2db">
+        <id name="paymentId" type="java.lang.Integer">
+            <column name="payment_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="com.hand.Entity.Customer" fetch="select">
+            <column name="customer_id" not-null="true" />
+        </many-to-one>
+        <property name="invoiceGroup" type="string">
+            <column name="invoice_group" length="20" />
+        </property>
+        <property name="currency" type="string">
+            <column name="currency" length="3" not-null="true" />
+        </property>
+        <property name="paymentTerm" type="string">
+            <column name="payment_term" length="120" not-null="true" />
+        </property>
+        <property name="priceIterm1" type="string">
+            <column name="price_iterm1" length="100" />
+        </property>
+        <property name="priceIterm2" type="string">
+            <column name="price_iterm2" length="100" />
+        </property>
+        <property name="priceIterm3" type="string">
+            <column name="price_iterm3" length="100" />
+        </property>
+        <property name="markupName" type="string">
+            <column name="markup_name" length="20" not-null="true" />
+        </property>
+        <property name="discountName" type="string">
+            <column name="discount_name" length="20" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
