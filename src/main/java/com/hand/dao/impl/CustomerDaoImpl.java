@@ -1,5 +1,6 @@
 package com.hand.dao.impl;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -27,11 +28,31 @@ public class CustomerDaoImpl implements CustomerDao{
 		Organization organization = customer.getOrganization();
 		Address address = customer.getAddress();
 		Linkman linkman = customer.getLinkman();
-		session = factory.openSession();
-		tx = session.beginTransaction();
+		address.setStatus("待确认");
 		
 		
-		session.save(customer);
+		
+		try {
+			session = factory.openSession();
+			tx = session.beginTransaction();
+			
+			int orgId = (Integer) session.save(organization);
+			int cusId = (Integer) session.save(customer);
+			int addId = (Integer) session.save(address);
+			int linId = (Integer) session.save(linkman);
+			
+			System.out.println("插入了orgId:"+orgId+"--cusId:"+cusId+"--addId:"+addId+"--linId"+linId);
+			
+			tx.commit();
+		} catch (HibernateException e) {
+			
+			if(tx!=null){
+				tx.rollback();
+			}
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
 		
 		return 1;
 	}
