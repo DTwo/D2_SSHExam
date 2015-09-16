@@ -32,23 +32,20 @@
 		</buildCommand>
 		<buildCommand>
 			<name>com.genuitec.eclipse.ast.deploy.core.DeploymentBuilder</name>
-<<<<<<< HEAD
+
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
 			<name>org.eclipse.m2e.core.maven2Builder</name>
-=======
->>>>>>> e511ef8cb15fe0dd1d138a6c5b3a9fa4e63d523c
+
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-<<<<<<< HEAD
+
 			<name>org.springframework.ide.eclipse.core.springbuilder</name>
-=======
-			<name>org.eclipse.m2e.core.maven2Builder</name>
->>>>>>> e511ef8cb15fe0dd1d138a6c5b3a9fa4e63d523c
+
 			<arguments>
 			</arguments>
 		</buildCommand>
