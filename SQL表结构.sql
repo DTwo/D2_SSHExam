@@ -1,3 +1,24 @@
+CREATE TABLE `organization` (
+  `organization_id` int(11) NOT NULL AUTO_INCREMENT,
+  `market_area` varchar(10) NOT NULL,
+  `business_manager` varchar(15) NOT NULL,
+  `busniess_assistant` varchar(15) NOT NULL,
+  `finance` varchar(15) NOT NULL,
+  PRIMARY KEY (`organization_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `customer` (
+  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_code` varchar(120) NOT NULL DEFAULT 'GTW',
+  `type` varchar(8) NOT NULL DEFAULT 'STD',
+  `Group_company` varchar(10) DEFAULT NULL,
+  `Corporation` varchar(10) DEFAULT NULL,
+  `organization_id` int(11) NOT NULL,
+  PRIMARY KEY (`customer_id`),
+  KEY `for_origanization_id` (`organization_id`),
+  CONSTRAINT `for_origanization_id` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `address` (
   `address_id` int(11) NOT NULL,
   `country` varchar(20) NOT NULL DEFAULT 'USA',
@@ -13,18 +34,6 @@ CREATE TABLE `address` (
   PRIMARY KEY (`address_id`),
   CONSTRAINT `foraddr_customer_id` FOREIGN KEY (`address_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `customer` (
-  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
-  `customer_code` varchar(120) NOT NULL DEFAULT 'GTW',
-  `type` varchar(8) NOT NULL DEFAULT 'STD',
-  `Group_company` varchar(10) DEFAULT NULL,
-  `Corporation` varchar(10) DEFAULT NULL,
-  `organization_id` int(11) NOT NULL,
-  PRIMARY KEY (`customer_id`),
-  KEY `for_origanization_id` (`organization_id`),
-  CONSTRAINT `for_origanization_id` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `linkman` (
   `customer_id` int(11) NOT NULL,
@@ -80,14 +89,7 @@ CREATE TABLE `on_discount_applied_records` (
   CONSTRAINT `forapp_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `organization` (
-  `organization_id` int(11) NOT NULL AUTO_INCREMENT,
-  `market_area` varchar(10) NOT NULL,
-  `business_manager` varchar(15) NOT NULL,
-  `busniess_assistant` varchar(15) NOT NULL,
-  `finance` varchar(15) NOT NULL,
-  PRIMARY KEY (`organization_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `payment` (
   `payment_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -104,6 +106,21 @@ CREATE TABLE `payment` (
   KEY `for_customer_id` (`customer_id`),
   CONSTRAINT `for_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `priceconfig` (
+  `price_config_id` int(11) NOT NULL,
+  `cust_code` varchar(120) NOT NULL DEFAULT 'GTW',
+  `type` varchar(8) NOT NULL DEFAULT 'STD',
+  `display_name` varchar(30) DEFAULT NULL,
+  `prive_list_col` varchar(30) NOT NULL DEFAULT 'User_def3',
+  `excel_col` int(3) DEFAULT NULL,
+  `activity` varchar(2) NOT NULL DEFAULT '是',
+  `customer_id` int(11) NOT NULL,
+  PRIMARY KEY (`price_config_id`),
+  KEY `for_customer_id` (`customer_id`),
+  CONSTRAINT `for_config_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `price` (
   `price_id` int(11) NOT NULL,
@@ -144,18 +161,4 @@ CREATE TABLE `price` (
   `user_def30` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`price_id`),
   CONSTRAINT `for_config_id` FOREIGN KEY (`price_id`) REFERENCES `priceconfig` (`price_config_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-CREATE TABLE `priceconfig` (
-  `price_config_id` int(11) NOT NULL,
-  `cust_code` varchar(120) NOT NULL DEFAULT 'GTW',
-  `type` varchar(8) NOT NULL DEFAULT 'STD',
-  `display_name` varchar(30) DEFAULT NULL,
-  `prive_list_col` varchar(30) NOT NULL DEFAULT 'User_def3',
-  `excel_col` int(3) DEFAULT NULL,
-  `activity` varchar(2) NOT NULL DEFAULT '是',
-  `customer_id` int(11) NOT NULL,
-  PRIMARY KEY (`price_config_id`),
-  KEY `for_customer_id` (`customer_id`),
-  CONSTRAINT `for_config_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

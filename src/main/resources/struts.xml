@@ -27,16 +27,13 @@
 	<!-- 允许标签中使用表达式语法 -->
 	<constant name="struts.tag.altSyntax" value="true" />
 
-	<package name="basePackage" extends="struts-default">
-	</package>
-	
 	<!-- 用户action配置 -->
-	<!-- <include file=""></include> -->
+	<include file="Customer_struts.xml"></include>
 	
 	<!-- 价格action配置 -->
-	<!-- <include file=""></include> -->
+	<include file="Price_struts.xml"></include>
 	
 	<!-- 折扣action配置 -->
-	<!-- <include file=""></include> -->
+	<include file="Discount_struts.xml"></include>
 	
 </struts>
