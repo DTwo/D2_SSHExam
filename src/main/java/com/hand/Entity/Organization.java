@@ -1,5 +1,5 @@
 package com.hand.Entity;
-// Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-9-16 16:01:39 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;

@@ -25,6 +25,7 @@ public class TestHibernate {
 		or.setBusinessManager("test");
 		or.setBusniessAssistant("test");
 		or.setMarketArea("test");
+		or.setFinance("test");
 		TestService.save(or);
 		
 	}

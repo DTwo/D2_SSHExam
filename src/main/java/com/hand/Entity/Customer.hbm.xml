@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-9-16 16:01:39 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.hand.Entity.Customer" table="customer" catalog="d2db">
         <id name="customerId" type="java.lang.Integer">
@@ -36,6 +36,12 @@
             <one-to-many class="com.hand.Entity.OmSpecialDiscount" />
         </set>
         <one-to-one name="address" class="com.hand.Entity.Address"></one-to-one>
+        <set name="priceconfigs" table="priceconfig" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_id" not-null="true" />
+            </key>
+            <one-to-many class="com.hand.Entity.Priceconfig" />
+        </set>
         <one-to-one name="linkman" class="com.hand.Entity.Linkman"></one-to-one>
         <set name="onDiscountAppliedRecordses" table="on_discount_applied_records" inverse="true" lazy="true" fetch="select">
             <key>
@@ -49,6 +55,5 @@
             </key>
             <one-to-many class="com.hand.Entity.OmNormalDiscount" />
         </set>
-        <one-to-one name="priceconfig" class="com.hand.Entity.Priceconfig"></one-to-one>
     </class>
 </hibernate-mapping>

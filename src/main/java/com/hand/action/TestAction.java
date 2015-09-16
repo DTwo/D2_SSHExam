@@ -27,6 +27,7 @@ public class TestAction {
 			or.setBusinessManager("test111");
 			or.setBusniessAssistant("test111");
 			or.setMarketArea("test111");
+			or.setFinance("test111");
 			TestService.save(or);
 	 }
 }
