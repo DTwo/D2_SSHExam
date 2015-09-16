@@ -26,7 +26,10 @@
 	<constant name="struts.enable.SlashesInActionNames" value="false" />
 	<!-- 允许标签中使用表达式语法 -->
 	<constant name="struts.tag.altSyntax" value="true" />
-
+	
+	<package name="basePackage" extends="struts-default">
+	</package>
+	
 	<!-- 用户action配置 -->
 	<include file="Customer_struts.xml"></include>
 	

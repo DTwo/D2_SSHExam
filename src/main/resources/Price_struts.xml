@@ -5,7 +5,9 @@
 <struts>
 	
 	<package name="Price" namespace="/price" extends="struts-default">
-		
+		<action name="*_*" class="{1}" method="{2}">
+			
+		</action>
 	</package>
 	
 	
