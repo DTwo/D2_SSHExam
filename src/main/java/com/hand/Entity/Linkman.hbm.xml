@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hand.Entity.Linkman" table="linkman" catalog="d2db">
+        <id name="customerId" type="int">
+            <column name="customer_id" />
+            <generator class="foreign">
+                <param name="property">customer</param>
+            </generator>
+        </id>
+        <one-to-one name="customer" class="com.hand.Entity.Customer" constrained="true"></one-to-one>
+        <property name="mailfrom" type="string">
+            <column name="mailfrom" length="50" />
+        </property>
+        <property name="prepoMailto" type="string">
+            <column name="prepo_mailto" length="200" />
+        </property>
+        <property name="poMailto" type="string">
+            <column name="po_mailto" length="200" />
+        </property>
+        <property name="ocpiMailto" type="string">
+            <column name="ocpi_mailto" length="200" />
+        </property>
+        <property name="invPklistMailto" type="string">
+            <column name="inv_pklist_mailto" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

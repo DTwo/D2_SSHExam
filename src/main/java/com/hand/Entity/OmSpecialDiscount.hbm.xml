@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hand.Entity.OmSpecialDiscount" table="om_special_discount" catalog="d2db">
+        <id name="specialId" type="java.lang.Integer">
+            <column name="special_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="com.hand.Entity.Customer" fetch="select">
+            <column name="customer_id" not-null="true" />
+        </many-to-one>
+        <property name="discountName" type="string">
+            <column name="discount_name" length="30" not-null="true" />
+        </property>
+        <property name="custCode" type="string">
+            <column name="cust_code" length="10" not-null="true" />
+        </property>
+        <property name="amount" type="string">
+            <column name="amount" length="15" not-null="true" />
+        </property>
+        <property name="appliedAmount" type="java.lang.Integer">
+            <column name="applied_amount" />
+        </property>
+        <property name="balance" type="int">
+            <column name="balance" not-null="true" />
+        </property>
+        <property name="activity" type="string">
+            <column name="activity" length="2" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

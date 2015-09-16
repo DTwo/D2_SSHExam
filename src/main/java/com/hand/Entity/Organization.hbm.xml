@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hand.Entity.Organization" table="organization" catalog="d2db">
+        <id name="organizationId" type="java.lang.Integer">
+            <column name="organization_id" />
+            <generator class="identity" />
+        </id>
+        <property name="marketArea" type="string">
+            <column name="market_area" length="10" not-null="true" />
+        </property>
+        <property name="businessManager" type="string">
+            <column name="business_manager" length="15" not-null="true" />
+        </property>
+        <property name="busniessAssistant" type="string">
+            <column name="busniess_assistant" length="15" not-null="true" />
+        </property>
+        <property name="finance" type="string">
+            <column name="finance" length="15" not-null="true" />
+        </property>
+        <set name="customers" table="customer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="organization_id" not-null="true" />
+            </key>
+            <one-to-many class="com.hand.Entity.Customer" />
+        </set>
+    </class>
+</hibernate-mapping>
