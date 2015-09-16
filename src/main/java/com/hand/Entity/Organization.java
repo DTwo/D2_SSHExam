@@ -1,5 +1,5 @@
 package com.hand.Entity;
-// Generated 2015-9-15 16:38:44 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-9-16 10:30:07 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,21 +13,25 @@ public class Organization implements java.io.Serializable {
 	private String marketArea;
 	private String businessManager;
 	private String busniessAssistant;
+	private String finance;
 	private Set customers = new HashSet(0);
 
 	public Organization() {
 	}
 
-	public Organization(String marketArea, String businessManager, String busniessAssistant) {
+	public Organization(String marketArea, String businessManager, String busniessAssistant, String finance) {
 		this.marketArea = marketArea;
 		this.businessManager = businessManager;
 		this.busniessAssistant = busniessAssistant;
+		this.finance = finance;
 	}
 
-	public Organization(String marketArea, String businessManager, String busniessAssistant, Set customers) {
+	public Organization(String marketArea, String businessManager, String busniessAssistant, String finance,
+			Set customers) {
 		this.marketArea = marketArea;
 		this.businessManager = businessManager;
 		this.busniessAssistant = busniessAssistant;
+		this.finance = finance;
 		this.customers = customers;
 	}
 
@@ -61,6 +65,14 @@ public class Organization implements java.io.Serializable {
 
 	public void setBusniessAssistant(String busniessAssistant) {
 		this.busniessAssistant = busniessAssistant;
+	}
+
+	public String getFinance() {
+		return this.finance;
+	}
+
+	public void setFinance(String finance) {
+		this.finance = finance;
 	}
 
 	public Set getCustomers() {
