@@ -4,9 +4,9 @@
  "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	
-	<package name="Price" namespace="/price" extends="struts-default">
-		<action name="*_*" class="{1}" method="{2}">
-			
+	<package name="Price" namespace="/" extends="struts-default">
+		<action name="PriceConfig_*" class="com.hand.action.PriceConfigAction" method="{1}">
+
 		</action>
 	</package>
 	

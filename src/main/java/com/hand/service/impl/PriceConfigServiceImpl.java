@@ -1,8 +1,11 @@
 package com.hand.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hand.Entity.Customer;
 import com.hand.Entity.Priceconfig;
 import com.hand.dao.impl.PriceConfigDaoImpl;
 import com.hand.service.PriceConfigService;
@@ -23,7 +26,11 @@ public class PriceConfigServiceImpl implements PriceConfigService{
 			bool = false;
 		}
 		return bool;
-		
 	}
-
+	public Customer getCustomerforPriceConfig(Integer customerId){
+		return PriceConfigDao.getCustomerwithId(customerId);
+	}
+	public List getPriceConfigList() {
+		return PriceConfigDao.getPriceConfigList();
+	}
 }

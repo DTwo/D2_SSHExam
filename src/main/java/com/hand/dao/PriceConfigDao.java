@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 
 import com.hand.Entity.Priceconfig;
+import com.hand.Entity.Customer;
 
 public interface PriceConfigDao {
 	/**
@@ -39,4 +40,19 @@ public interface PriceConfigDao {
 	 * @return
 	 */
 	List getPriceConfigList();
+	
+	/**
+	 * 通过简称和类型取得指定的Customer
+	 * @param cust_code  -->简称
+	 * @param type   --->类型
+	 * @return
+	 */
+	public Customer getCustomerwithCandT(String cust_code,String type);
+	
+	/**
+	 * 通过用户Id取得指定的Customer
+	 * @param customerId   -->用户Id
+	 * @return
+	 */
+	public Customer getCustomerwithId(Integer customerId);
 }
