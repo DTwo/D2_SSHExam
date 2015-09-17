@@ -9,15 +9,17 @@ CREATE TABLE `organization` (
 
 CREATE TABLE `customer` (
   `customer_id` int(11) NOT NULL AUTO_INCREMENT,
-  `customer_code` varchar(120) NOT NULL DEFAULT 'GTW',
+  `customer_code` varchar(10) NOT NULL DEFAULT 'GTW',
   `type` varchar(8) NOT NULL DEFAULT 'STD',
   `Group_company` varchar(10) DEFAULT NULL,
   `Corporation` varchar(10) DEFAULT NULL,
   `organization_id` int(11) NOT NULL,
+  `customer_name` varchar(120) NOT NULL DEFAULT 'Greate Tesla World Co.,Ltd',
   PRIMARY KEY (`customer_id`),
   KEY `for_origanization_id` (`organization_id`),
   CONSTRAINT `for_origanization_id` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `address` (
   `address_id` int(11) NOT NULL,

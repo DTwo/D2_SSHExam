@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-9-17 12:06:10 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-9-17 13:05:17 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.hand.Entity.Customer" table="customer" catalog="d2db">
         <id name="customerId" type="java.lang.Integer">
@@ -12,7 +12,7 @@
             <column name="organization_id" not-null="true" />
         </many-to-one>
         <property name="customerCode" type="string">
-            <column name="customer_code" length="120" not-null="true" />
+            <column name="customer_code" length="10" not-null="true" />
         </property>
         <property name="type" type="string">
             <column name="type" length="8" not-null="true" />
@@ -22,6 +22,9 @@
         </property>
         <property name="corporation" type="string">
             <column name="Corporation" length="10" />
+        </property>
+        <property name="customerName" type="string">
+            <column name="customer_name" length="120" not-null="true" />
         </property>
         <set name="payments" table="payment" inverse="true" lazy="true" fetch="select">
             <key>
