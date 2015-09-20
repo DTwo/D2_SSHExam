@@ -1,5 +1,5 @@
 package com.hand.Entity;
-// Generated 2015-9-20 12:53:22 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-9-21 1:02:26 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +22,7 @@ public class Customer implements java.io.Serializable {
 	private Set priceconfigs = new HashSet(0);
 	private Linkman linkman;
 	private Set onDiscountAppliedRecordses = new HashSet(0);
+	private Set prices = new HashSet(0);
 	private Set omNormalDiscounts = new HashSet(0);
 
 	public Customer() {
@@ -36,7 +37,7 @@ public class Customer implements java.io.Serializable {
 
 	public Customer(Organization organization, String customerCode, String type, String groupCompany,
 			String corporation, String customerName, Set payments, Set omSpecialDiscounts, Address address,
-			Set priceconfigs, Linkman linkman, Set onDiscountAppliedRecordses, Set omNormalDiscounts) {
+			Set priceconfigs, Linkman linkman, Set onDiscountAppliedRecordses, Set prices, Set omNormalDiscounts) {
 		this.organization = organization;
 		this.customerCode = customerCode;
 		this.type = type;
@@ -49,6 +50,7 @@ public class Customer implements java.io.Serializable {
 		this.priceconfigs = priceconfigs;
 		this.linkman = linkman;
 		this.onDiscountAppliedRecordses = onDiscountAppliedRecordses;
+		this.prices = prices;
 		this.omNormalDiscounts = omNormalDiscounts;
 	}
 
@@ -154,6 +156,14 @@ public class Customer implements java.io.Serializable {
 
 	public void setOnDiscountAppliedRecordses(Set onDiscountAppliedRecordses) {
 		this.onDiscountAppliedRecordses = onDiscountAppliedRecordses;
+	}
+
+	public Set getPrices() {
+		return this.prices;
+	}
+
+	public void setPrices(Set prices) {
+		this.prices = prices;
 	}
 
 	public Set getOmNormalDiscounts() {

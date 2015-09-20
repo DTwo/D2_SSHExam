@@ -1,5 +1,5 @@
 package com.hand.Entity;
-// Generated 2015-9-20 12:53:22 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-9-21 1:02:26 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ import java.util.Date;
 public class Price implements java.io.Serializable {
 
 	private Integer priceId;
-	private Priceconfig priceconfig;
+	private Customer customer;
 	private String plCustCode;
 	private String type;
 	private String plYhItem;
@@ -49,21 +49,21 @@ public class Price implements java.io.Serializable {
 	public Price() {
 	}
 
-	public Price(Priceconfig priceconfig, String plCustCode, String type, String plYhItem) {
-		this.priceconfig = priceconfig;
+	public Price(Customer customer, String plCustCode, String type, String plYhItem) {
+		this.customer = customer;
 		this.plCustCode = plCustCode;
 		this.type = type;
 		this.plYhItem = plYhItem;
 	}
 
-	public Price(Priceconfig priceconfig, String plCustCode, String type, String plYhItem, Date effectiveDateFrom,
+	public Price(Customer customer, String plCustCode, String type, String plYhItem, Date effectiveDateFrom,
 			Date effectiveDateTo, String userDef1, String userDef2, String userDef3, String userDef4, String userDef5,
 			String userDef6, String userDef7, String userDef8, String userDef9, String userDef10, String userDef11,
 			String userDef12, String userDef13, String userDef14, String userDef15, String userDef16, String userDef17,
 			String userDef18, String userDef19, String userDef20, String userDef21, String userDef22, String userDef23,
 			String userDef24, String userDef25, String userDef26, String userDef27, String userDef28, String userDef29,
 			String userDef30) {
-		this.priceconfig = priceconfig;
+		this.customer = customer;
 		this.plCustCode = plCustCode;
 		this.type = type;
 		this.plYhItem = plYhItem;
@@ -109,12 +109,12 @@ public class Price implements java.io.Serializable {
 		this.priceId = priceId;
 	}
 
-	public Priceconfig getPriceconfig() {
-		return this.priceconfig;
+	public Customer getCustomer() {
+		return this.customer;
 	}
 
-	public void setPriceconfig(Priceconfig priceconfig) {
-		this.priceconfig = priceconfig;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	public String getPlCustCode() {

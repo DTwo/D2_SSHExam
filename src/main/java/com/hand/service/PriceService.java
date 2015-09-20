@@ -34,4 +34,12 @@ public interface PriceService {
 	 */
 	Price getPriceWithId(Integer priceId);
 	
+	/**
+	 * 通过用户简称cus_code和类型type获取对应的价格表信息
+	 * @param cus_code
+	 * @param type
+	 * @return
+	 */
+	List getPriceWithCandT(String cus_code,String type);
+	
 }

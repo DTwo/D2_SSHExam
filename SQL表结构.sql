@@ -112,9 +112,6 @@ CREATE TABLE `payment` (
 
 
 
-
-
-
 CREATE TABLE `priceconfig` (
   `price_config_id` int(11) NOT NULL AUTO_INCREMENT,
   `cust_code` varchar(120) NOT NULL DEFAULT 'GTW',
@@ -127,8 +124,8 @@ CREATE TABLE `priceconfig` (
   PRIMARY KEY (`price_config_id`),
   KEY `for_customer_id` (`customer_id`),
   CONSTRAINT `for_config_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+SELECT * FROM d2db.priceconfig;
 
 CREATE TABLE `price` (
   `price_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -167,9 +164,8 @@ CREATE TABLE `price` (
   `user_def28` varchar(20) DEFAULT NULL,
   `user_def29` varchar(20) DEFAULT NULL,
   `user_def30` varchar(20) DEFAULT NULL,
-  `priceconfig_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   PRIMARY KEY (`price_id`),
-  KEY `idx_fk_priceconfig_id` (`priceconfig_id`) USING BTREE,
-  CONSTRAINT `fk_price_priceconfig` FOREIGN KEY (`priceconfig_id`) REFERENCES `priceconfig` (`price_config_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+  KEY `idx_fk_customer_id` (`customer_id`),
+  CONSTRAINT `fk_price_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

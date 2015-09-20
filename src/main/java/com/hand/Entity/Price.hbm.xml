@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-9-20 12:53:22 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-9-21 1:02:26 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.hand.Entity.Price" table="price" catalog="d2db">
         <id name="priceId" type="java.lang.Integer">
             <column name="price_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="priceconfig" class="com.hand.Entity.Priceconfig" fetch="select">
-            <column name="priceconfig_id" not-null="true" />
+        <many-to-one name="customer" class="com.hand.Entity.Customer" fetch="select">
+            <column name="customer_id" not-null="true" />
         </many-to-one>
         <property name="plCustCode" type="string">
             <column name="pl_cust_code" length="10" not-null="true" />

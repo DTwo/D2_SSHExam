@@ -33,4 +33,10 @@ public class PriceConfigServiceImpl implements PriceConfigService{
 	public List getPriceConfigList() {
 		return PriceConfigDao.getPriceConfigList();
 	}
+	public List getCustomerList() {
+		return PriceConfigDao.getCustomerList();
+	}
+	public List getCustomerwithCandT(String Cus_code, String Type) {
+		return PriceConfigDao.getPriceConfigwithCandT(Cus_code, Type);
+	}
 }

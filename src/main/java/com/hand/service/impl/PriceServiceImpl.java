@@ -43,4 +43,8 @@ public class PriceServiceImpl implements PriceService{
 		return null;
 	}
 
+	public List getPriceWithCandT(String cus_code, String type) {
+		return priceDao.getPricewithCandT(cus_code, type);
+	}
+
 }

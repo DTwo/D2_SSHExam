@@ -26,4 +26,19 @@ public interface PriceConfigService {
 	 * @return
 	 */
 	public Customer getCustomerforPriceConfig(Integer customerId);
+	
+	/**
+	 * 获取Customer列表信息
+	 * @return
+	 */
+	public List getCustomerList();
+	
+	
+	/**
+	 * 
+	 * @param Cus_code
+	 * @param Type
+	 * @return
+	 */
+	public List getCustomerwithCandT(String Cus_code,String Type);
 }

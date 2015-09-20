@@ -29,9 +29,13 @@ public class PriceConfigDaoImpl implements PriceConfigDao{
 		}catch(HibernateException e){e.printStackTrace();}
 	}
 
-	public Priceconfig getPriceConfigwithCandT(String cust_code, String type) {
-		// TODO Auto-generated method stub
-		return null;
+	public List getPriceConfigwithCandT(String cust_code, String type) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM Priceconfig WHERE custCode =:Cus_code AND type =:Cus_Type";
+		Query query = session.createQuery(hql);
+		query.setParameter("Cus_code", cust_code);
+		query.setParameter("Cus_Type", type);
+		return query.list();
 	}
 
 	public Priceconfig getPriceConfigwithId(Integer priceConfigId) {
@@ -66,6 +70,13 @@ public class PriceConfigDaoImpl implements PriceConfigDao{
 		Session session = sessionFactory.getCurrentSession();
 		return (Customer) session.get(Customer.class, customerId);
 		
+	}
+
+	public List getCustomerList() {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM Customer";
+		Query query = session.createQuery(hql);
+		return query.list();
 	}
 	
 }

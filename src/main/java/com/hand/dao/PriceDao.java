@@ -19,11 +19,13 @@ public interface PriceDao {
 	List getPriceList()throws HibernateException;
 	
 	/**
-	 * 通过价格配置表主键Id获取对应的价格表信息
-	 * @param priceConfigId
+	 * 通过用户简称cus_code和类型type获取对应的价格表信息
+	 * @param cus_code
+	 * @param type
 	 * @return
+	 * @throws HibernateException
 	 */
-	List getPricewithConfigId(Integer priceConfigId)throws HibernateException;
+	List getPricewithCandT(String cus_code,String type)throws HibernateException;
 	
 	/**
 	 * 通过Price主键priceId获取指定Price对象

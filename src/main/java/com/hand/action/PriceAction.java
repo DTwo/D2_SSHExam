@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletResponse;
@@ -17,9 +19,16 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.gson.Gson;
+import com.hand.Entity.Price;
+import com.hand.service.PriceService;
 import com.opensymphony.xwork2.ActionSupport;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
 
 
 
@@ -31,10 +40,29 @@ public class PriceAction extends ActionSupport{
 	private String downloadFilePath;  //文件下载路径
 	private String fileContentType;   //文件类型
 	private String suffix;  //从页面一起传上来的文件后缀名
+	private InputStream inputStream; 
 
+	@Autowired
+	private PriceService priceService;
+	
+	//获取客户简称cus_code和类型type，来获取指定用户的价格表Price
+	private String cus_code;
+	private String type;
 	
 	
 
+	public String getCus_code() {
+		return cus_code;
+	}
+	public void setCus_code(String cus_code) {
+		this.cus_code = cus_code;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public String getSuffix() {
 		return suffix;
 	}
@@ -47,8 +75,6 @@ public class PriceAction extends ActionSupport{
 	public void setFileContentType(String fileContentType) {
 		this.fileContentType = fileContentType;
 	}
-	private InputStream inputStream; 
-	
 	public File getFile() {
 		return file;
 	}
@@ -110,9 +136,6 @@ public class PriceAction extends ActionSupport{
 	    		uploadresult = "error";
 	    	}
 	    	
-	    	
-	    	
-	    	
 	    }catch(Exception e){
 	    	e.printStackTrace();
 	    	 json = gson.toJson("error");
@@ -123,7 +146,40 @@ public class PriceAction extends ActionSupport{
 	}
 	
 	
+	//通过客户简称Code和类型Type获取指定客户的价格表
+	public void getPriceWithCandT(){
+		List<Price> pricelist = priceService.getPriceWithCandT(cus_code, type);
+		Price activityPrice = null;
+		//遍历，把有效时间的那一项返回页面
+		for(int i=0;i<pricelist.size();i++){
+			//判断有效时间
+			if(pricelist.get(i).getEffectiveDateTo()!=null&&pricelist.get(i).getEffectiveDateTo().after(new Date())){
+				System.out.println("get a Activity Price");
+				activityPrice = pricelist.get(i);
+			}
+		}
+		//输出Price对象
+		try{
+			JsonConfig jsonConfig = new JsonConfig(); //建立配置
+			jsonConfig.setExcludes(new String[]{"customer"});//忽略外联表
+			JSONObject jsonObject = JSONObject.fromObject(activityPrice, jsonConfig);
+			String json = jsonObject.toString();
+			outputJson(json);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	
+	
+	}
+	
+	
+	
+	
+	
+	/**
+	 * 输出json
+	 * @param json
+	 */
 	public void outputJson(String json){
 		try {
 			System.out.println(json);

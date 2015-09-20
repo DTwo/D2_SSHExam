@@ -16,6 +16,8 @@
 <link href="Price/bootstrap.min.css" type="text/css" rel="stylesheet" />
 <script src="Price/jquery-2.1.4.min.js"></script>
 <script src="Price/bootstrap.min.js"></script>
+<script src="Price/addpriceconfig.js"></script>
+
 
 <script src="resources/scripts/jquery-1.7.1.min.js"></script>
 <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
@@ -697,22 +699,22 @@
 				<tr>
 					<td>1</td>
 					<td>PL_YH_ITEM</td>
-					<td>YH NO.</td>
-					<td>2</td>
+					<td id="displayName0"></td>
+					<td id="ExcelCol0"></td>
 					<td><input type="checkbox" checked="checked"></td>
 				</tr>
 				<tr>
 					<td>2</td>
 					<td>effective_date_from</td>
-					<td>有效期从</td>
-					<td>3</td>
+					<td id="displayName1"></td>
+					<td id="ExcelCol1"></td>
 					<td><input type="checkbox" checked="checked"></td>
 				</tr>
 				<tr>
 					<td>3</td>
 					<td>effective_date_to</td>
-					<td>有效期至</td>
-					<td>4</td>
+					<td id="displayName2"></td>
+					<td id="ExcelCol2"></td>
 					<td><input type="checkbox" checked="checked"></td>
 				</tr>
 			</table>
@@ -855,7 +857,7 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">Edit Customer</h4>
+					<h4 class="modal-title" id="myModalLabel">新增配置</h4>
 				</div>
 				<div class="modal-body">
 					<span class="hidden" id="model_cusid"></span>
@@ -865,7 +867,7 @@
 						<div class="form-group">
 							<label for="inputPassword3" class="col-sm-3 control-label">客户：</label>
 							<div class="col-sm-7">
-								<div class="dropdown">
+								<div class="dropdown cuslist">
 									<button id="select_addr"
 										class="btn btn-default dropdown-toggle col-sm-12"
 										type="button" id="dropdownMenu1" data-toggle="dropdown"
@@ -880,30 +882,39 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-3 control-label">序号：</label>
+							<label for="inputEmail3" class="col-sm-3 control-label">类型：</label>
 							<div class="col-sm-7">
 								<input type="text" class="form-control" id="cusType" value="STD">
 							</div>
 						</div>
 
+						
 						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-3 control-label">序号：</label>
+							<label for="inputPassword3" class="col-sm-3 control-label">PL列名</label>
 							<div class="col-sm-7">
-								<p class="form-control-static">序号框中的值</p>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-3 control-label">PL列名：</label>
-							<div class="col-sm-7">
-								<p class="form-control-static">PL列名框中的值</p>
+								<div class="dropdown PLlist">
+									<button id="select_PLcol"
+										class="btn btn-default dropdown-toggle col-sm-12"
+										type="button" id="dropdownMenu1" data-toggle="dropdown"
+										aria-haspopup="true" aria-expanded="false">
+										请选择PL列名  <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+										
+										<li><a href="#">PL_YH_ITEM</a></li>
+										<li><a href="#">effective_date_from</a></li>
+										<li><a href="#">effective_date_to</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="inputPassword3" class="col-sm-3 control-label">显示名称</label>
 							<div class="col-sm-7">
-								<input type="text" class="form-control" id="showName">
+								<input type="text" id="displayName" class="form-control" id="showName">
 							</div>
 						</div>
+						
 						<div class="form-group">
 							<label for="inputPassword3" class="col-sm-3 control-label">EXCEL列</label>
 							<div class="col-sm-7">

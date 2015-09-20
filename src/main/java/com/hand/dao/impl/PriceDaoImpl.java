@@ -31,9 +31,13 @@ public class PriceDaoImpl implements PriceDao{
 		return query.list();
 	}
 
-	public List getPricewithConfigId(Integer priceConfigId) throws HibernateException{
-		// TODO Auto-generated method stub
-		return null;
+	public List getPricewithCandT(String cus_code,String type) throws HibernateException{
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM Price WHERE plCustCode =:Cus_code and type =:Cus_type";
+		Query query = session.createQuery(hql);
+		query.setParameter("Cus_code", cus_code);
+		query.setParameter("Cus_type", type);
+		return query.list();
 	}
 
 	public Price getPricewithId(Integer priceId) throws HibernateException{
