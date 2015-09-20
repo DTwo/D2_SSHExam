@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 import com.hand.Entity.Customer;
 import com.hand.Entity.Priceconfig;
-import com.hand.dao.impl.PriceConfigDaoImpl;
+import com.hand.dao.PriceConfigDao;
 import com.hand.service.PriceConfigService;
 
 @Service("PriceConfigService")
 public class PriceConfigServiceImpl implements PriceConfigService{
 	
 	@Autowired
-	private PriceConfigDaoImpl PriceConfigDao;
+	private PriceConfigDao PriceConfigDao;
 	
 	public boolean addPriceConfig(Priceconfig priceConfig) {
 		boolean bool = false;

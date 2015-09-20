@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hand.Entity.Price;
-import com.hand.dao.impl.PriceDaoImpl;
+import com.hand.dao.PriceDao;
 import com.hand.service.PriceService;
 
 @Service("priceService")
 public class PriceServiceImpl implements PriceService{
 
 	@Autowired
-	private PriceDaoImpl priceDao;
+	private PriceDao priceDao;
 	
 	public boolean addPrice(Price price) {
 		boolean result = false;

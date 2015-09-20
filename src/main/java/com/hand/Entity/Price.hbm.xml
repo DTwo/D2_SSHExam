@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-9-17 13:05:17 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-9-20 12:53:22 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.hand.Entity.Price" table="price" catalog="d2db">
-        <id name="priceId" type="int">
+        <id name="priceId" type="java.lang.Integer">
             <column name="price_id" />
-            <generator class="foreign">
-                <param name="property">priceconfig</param>
-            </generator>
+            <generator class="identity" />
         </id>
-        <one-to-one name="priceconfig" class="com.hand.Entity.Priceconfig" constrained="true"></one-to-one>
+        <many-to-one name="priceconfig" class="com.hand.Entity.Priceconfig" fetch="select">
+            <column name="priceconfig_id" not-null="true" />
+        </many-to-one>
         <property name="plCustCode" type="string">
             <column name="pl_cust_code" length="10" not-null="true" />
         </property>

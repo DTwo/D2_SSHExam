@@ -1,5 +1,5 @@
 package com.hand.Entity;
-// Generated 2015-9-17 13:05:17 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-9-20 12:53:22 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class Price implements java.io.Serializable {
 
-	private int priceId;
+	private Integer priceId;
 	private Priceconfig priceconfig;
 	private String plCustCode;
 	private String type;
@@ -101,11 +101,11 @@ public class Price implements java.io.Serializable {
 		this.userDef30 = userDef30;
 	}
 
-	public int getPriceId() {
+	public Integer getPriceId() {
 		return this.priceId;
 	}
 
-	public void setPriceId(int priceId) {
+	public void setPriceId(Integer priceId) {
 		this.priceId = priceId;
 	}
 

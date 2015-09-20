@@ -1,5 +1,5 @@
 package com.hand.Entity;
-// Generated 2015-9-17 13:05:17 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-9-20 12:53:22 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 

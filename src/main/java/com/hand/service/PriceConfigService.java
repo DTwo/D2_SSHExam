@@ -2,6 +2,7 @@ package com.hand.service;
 
 import java.util.List;
 
+import com.hand.Entity.Customer;
 import com.hand.Entity.Priceconfig;
 
 public interface PriceConfigService {
@@ -18,4 +19,11 @@ public interface PriceConfigService {
 	 * @return
 	 */
 	List getPriceConfigList();
+	
+	/**
+	 * 获取指定Customer
+	 * @param customerId
+	 * @return
+	 */
+	public Customer getCustomerforPriceConfig(Integer customerId);
 }

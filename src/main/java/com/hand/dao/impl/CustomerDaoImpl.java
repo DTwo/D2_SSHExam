@@ -9,7 +9,6 @@ import com.hand.Entity.Address;
 import com.hand.Entity.Customer;
 import com.hand.Entity.Linkman;
 import com.hand.Entity.Organization;
-import com.hand.Entity.Payment;
 import com.hand.dao.CustomerDao;
 
 public class CustomerDaoImpl implements CustomerDao{
