@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.hand.Entity.Customer;
+import com.hand.Entity.Price;
 import com.hand.Entity.Priceconfig;
 import com.hand.dao.PriceConfigDao;
 
@@ -77,6 +78,15 @@ public class PriceConfigDaoImpl implements PriceConfigDao{
 		String hql = "FROM Customer";
 		Query query = session.createQuery(hql);
 		return query.list();
+	}
+
+	public Price getPriceWithCandT(String Cus_code, String Cus_Type) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM Price WHERE plCustCode =:Cus_Code AND type =:Cus_type";
+		Query query = session.createQuery(hql);
+		query.setParameter("Cus_Code", Cus_code);
+		query.setParameter("Cus_type", Cus_Type);
+		return (Price) query.list().get(0);
 	}
 	
 }

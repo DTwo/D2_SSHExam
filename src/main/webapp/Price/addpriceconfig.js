@@ -105,39 +105,41 @@ $(document).ready(function(){
 	})
 	
 	
-	//点击查询/修改，请求数据添加到下方表格
+//	//点击查询/修改，请求数据添加到下方表格
+//	$("#u114_input").click(function(){
+//		var cus_code = $("#u105_input").val();
+//		var type = $("#u113_input").val();
+//		alert("cus_code:"+cus_code+"type:"+type);
+//		
+//		$.ajax({
+//			url:server_context+"/PriceConfig_getPriceConfigWithCandT.action",
+//			data:{
+//				cus_code:cus_code,
+//				type:type,
+//				},
+//			dataType:'json',
+//			error:function(){alert("ajax error!!!")},
+//			success:function(json){
+//					console.log(json);
+//					
+//					if(json.length){
+//						$.each(json,function(index,array){
+//							alert("索引："+index);
+//							
+//							$("#displayName"+index).text(array.displayName);
+//							$("#ExcelCol"+index).text(array.excelCol);
+//						})
+//					}
+//					
+//				}
+//					
+//			});
+//	})
+	
+	
 	$("#u114_input").click(function(){
-		var cus_code = $("#u105_input").val();
-		var type = $("#u113_input").val();
-		alert("cus_code:"+cus_code+"type:"+type);
-		
-		$.ajax({
-			url:server_context+"/PriceConfig_getPriceConfigWithCandT.action",
-			data:{
-				cus_code:cus_code,
-				type:type,
-				},
-			dataType:'json',
-			error:function(){alert("ajax error!!!")},
-			success:function(json){
-					console.log(json);
-					
-					if(json.length){
-						$.each(json,function(index,array){
-							alert("索引："+index);
-							
-							$("#displayName"+index).text(array.displayName);
-							$("#ExcelCol"+index).text(array.excelCol);
-						})
-					}
-					
-				}
-					
-			});
+		location.href="价格表配置查询_编辑.html";
 	})
-	
-	
-	
 	
 	
 	

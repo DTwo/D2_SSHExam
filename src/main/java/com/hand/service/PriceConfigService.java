@@ -3,6 +3,7 @@ package com.hand.service;
 import java.util.List;
 
 import com.hand.Entity.Customer;
+import com.hand.Entity.Price;
 import com.hand.Entity.Priceconfig;
 
 public interface PriceConfigService {
@@ -40,5 +41,9 @@ public interface PriceConfigService {
 	 * @param Type
 	 * @return
 	 */
-	public List getCustomerwithCandT(String Cus_code,String Type);
+	public Price getPricewithCandT(String Cus_code,String Type);
+	
+	
+	public List getCusListWithCandT(String Cus_code,String Type);
+	
 }

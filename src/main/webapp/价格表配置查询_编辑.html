@@ -14,7 +14,7 @@
     <link href="Price/bootstrap.min.css" type="text/css" rel="stylesheet"/>
     <script src="Price/jquery-2.1.4.min.js"></script>
     <script src="Price/bootstrap.min.js"></script>
-    
+    <script src="Price/check_edit_priceconfig.js"></script>
     
     
     <script src="resources/scripts/jquery-1.7.1.min.js"></script>
@@ -57,14 +57,14 @@
   <body>
     <div id="base" class="">
 
-      <!-- Unnamed (Shape) -->
+      <!-- Unnamed (Shape) 
       <div id="u0" class="ax_shape">
-        <img id="u0_img" class="img " src="images/价格表配置查询_编辑/u0.png"/>
-        <!-- Unnamed () -->
+        <img id="u0_img" class="img " src="images/价格表配置查询_编辑/u0.png"/>-->
+        <!-- Unnamed () 
         <div id="u1" class="text">
           <p style="text-align:center;"><span style="color:#FF0000;text-align:center;">提醒！</span></p><p style="text-align:center;"><span style="color:#333333;text-align:center;">&nbsp;&nbsp; </span></p><p style="text-align:left;"><span style="color:#000000;text-align:left;">&nbsp;</span><span style="color:#000000;text-align:left;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color:#000000;text-align:left;">修改的列已存在历史</span></p><p style="text-align:left;"><span style="color:#000000;text-align:left;">&nbsp; &nbsp;&nbsp; 数</span><span style="color:#000000;text-align:left;">据，是否确认修改</span><span style="color:#000000;text-align:left;">？</span></p><p style="text-align:center;"><span style="color:#FF0000;text-align:center;">&nbsp;</span></p><p style="text-align:center;"><span style="color:#FF0000;text-align:center;">&nbsp;</span></p><p style="text-align:center;"><span style="color:#FF0000;text-align:center;">&nbsp;</span></p>
         </div>
-      </div>
+      </div>-->
 
       <!-- Unnamed (Shape) -->
       <div id="u2" class="ax_h1">
@@ -587,7 +587,7 @@
       			<th>EXCEL列</th>
       			<th>启用</th>
       		</tr>
-      		
+      		<!-- 
       		<tr>
       			<td>1</td>
       			<td>PL_YH_ITEM</td>
@@ -630,8 +630,7 @@
       			<td>7</td>
       			<td><input type="checkbox"></td>
       		</tr>
-      		
-      		
+      		 -->
       		
       	</table>
       </div>
@@ -659,7 +658,8 @@
 
       <!-- Unnamed (HTML Button) -->
       <div id="u214" class="ax_html_button">
-        <input id="u214_input" type="submit" value="新增配置"/>
+        <input id="u214_input" type="submit" value="新增配置" data-toggle="modal"
+				data-target="#myModal"/>
       </div>
 
       <!-- Unnamed (HTML Button) -->
@@ -731,15 +731,101 @@
         </div>
       </div>
 
-      <!-- Unnamed (HTML Button) -->
+      <!-- Unnamed (HTML Button)
       <div id="u246" class="ax_html_button">
         <input id="u246_input" type="submit" value="取消"/>
-      </div>
+      </div> -->
 
-      <!-- Unnamed (HTML Button) -->
+      <!-- Unnamed (HTML Button) 
       <div id="u247" class="ax_html_button">
         <input id="u247_input" type="submit" value="确认"/>
-      </div>
+      </div>-->
     </div>
+    
+    
+    
+    
+    <!-- 模态框 -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">新增配置</h4>
+				</div>
+				<div class="modal-body">
+					<span class="hidden" id="model_cusid"></span>
+					<!-- 表单 -->
+					<form class="form-horizontal">
+
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-3 control-label">客户：</label>
+							<div class="col-sm-7">
+									<p id="Cus_code"></p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-3 control-label">类型：</label>
+							<div class="col-sm-7">
+								<p id="Cus_type"></p>
+							</div>
+						</div>
+
+						
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-3 control-label">PL列名</label>
+							<div class="col-sm-7">
+								<div class="dropdown PLlist">
+									<button id="select_PLcol"
+										class="btn btn-default dropdown-toggle col-sm-12"
+										type="button" id="dropdownMenu1" data-toggle="dropdown"
+										aria-haspopup="true" aria-expanded="false">
+										请选择PL列名  <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+										
+										<li><a href="#">PL_YH_ITEM</a></li>
+										<li><a href="#">effective_date_from</a></li>
+										<li><a href="#">effective_date_to</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-3 control-label">显示名称</label>
+							<div class="col-sm-7">
+								<input type="text" id="displayName" class="form-control" id="showName">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-3 control-label">EXCEL列</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="Excelcol">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-3 control-label">启用</label>
+							<div class="col-sm-7">
+								<input type="checkbox" checked="checked">
+							</div>
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" id="submit" class=" btn btn-primary">Save
+						changes</button>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+    
+    
+    
   </body>
 </html>

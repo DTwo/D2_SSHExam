@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hand.Entity.Customer;
+import com.hand.Entity.Price;
 import com.hand.Entity.Priceconfig;
 import com.hand.dao.PriceConfigDao;
 import com.hand.service.PriceConfigService;
@@ -36,7 +37,10 @@ public class PriceConfigServiceImpl implements PriceConfigService{
 	public List getCustomerList() {
 		return PriceConfigDao.getCustomerList();
 	}
-	public List getCustomerwithCandT(String Cus_code, String Type) {
+	public Price getPricewithCandT(String Cus_code,String Type) {
+		return PriceConfigDao.getPriceWithCandT(Cus_code, Type);
+	}
+	public List getCusListWithCandT(String Cus_code, String Type) {
 		return PriceConfigDao.getPriceConfigwithCandT(Cus_code, Type);
 	}
 }

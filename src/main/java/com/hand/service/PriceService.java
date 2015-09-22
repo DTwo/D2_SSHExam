@@ -2,6 +2,7 @@ package com.hand.service;
 
 import java.util.List;
 
+import com.hand.Entity.Customer;
 import com.hand.Entity.Price;
 
 public interface PriceService {
@@ -41,5 +42,17 @@ public interface PriceService {
 	 * @return
 	 */
 	List getPriceWithCandT(String cus_code,String type);
+	
+	/**
+	 * 通过用户简称cus_code和类型type和工厂型号Factory获取对应的价格表信息
+	 * @param cus_code
+	 * @param type
+	 * @param Factory
+	 * @return
+	 */
+	List getPriceWithCandTandF(String cus_code,String type,String Factory);
+	
+	
+	Customer getCusWithCandT(String cus_code,String type);
 	
 }

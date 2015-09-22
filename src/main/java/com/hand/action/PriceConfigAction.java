@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.gson.Gson;
 import com.hand.Entity.Customer;
+import com.hand.Entity.Price;
 import com.hand.Entity.Priceconfig;
 import com.hand.service.PriceConfigService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -79,16 +80,16 @@ public class PriceConfigAction extends ActionSupport{
 	public void addPriceConfig(){
 		//获取当前指定的客户来配置价格表
 		System.out.println("in addPriceConfig");
-		Customer forPriceConfig = PriceConfigService.getCustomerforPriceConfig(Integer.valueOf(customerId));
-		
+		//Customer forPriceConfig = PriceConfigService.getCustomerforPriceConfig(Integer.valueOf(customerId));
+		Price forPriceConfig = PriceConfigService.getPricewithCandT(cus_code, type);
 		Priceconfig priceConfig = new Priceconfig();
-		priceConfig.setCustCode(forPriceConfig.getCustomerCode());
-		priceConfig.setCustomer(forPriceConfig);
+		priceConfig.setCustCode(cus_code);
 		priceConfig.setDisplayName(displayName);
-		priceConfig.setType(forPriceConfig.getType());
+		priceConfig.setType(type);
 		priceConfig.setExcelCol(Integer.valueOf(excelcol));
 		priceConfig.setActivity(activity);
 		priceConfig.setPriveListCol(privelistcol);
+		priceConfig.setPrice(forPriceConfig);
 		if(PriceConfigService.addPriceConfig(priceConfig)){
 			System.out.println("插入成功");
 			outputJson("true");
@@ -128,11 +129,11 @@ public class PriceConfigAction extends ActionSupport{
 	
 	
 	public void getPriceConfigWithCandT(){
-		List<Priceconfig> priceConfigList = PriceConfigService.getCustomerwithCandT(cus_code, type);
+		List<Priceconfig> priceConfigList = PriceConfigService.getCusListWithCandT(cus_code, type);
 		System.out.println("");
 		try{
 			JsonConfig jsonConfig = new JsonConfig(); //建立配置
-			jsonConfig.setExcludes(new String[]{"customer"});//忽略外联表
+			jsonConfig.setExcludes(new String[]{"price"});//忽略外联表
 			JSONArray jsonArray = JSONArray.fromObject(priceConfigList, jsonConfig);
 			String json = jsonArray.toString();
 			outputJson(json);

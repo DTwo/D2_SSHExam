@@ -111,22 +111,6 @@ CREATE TABLE `payment` (
 
 
 
-
-CREATE TABLE `priceconfig` (
-  `price_config_id` int(11) NOT NULL AUTO_INCREMENT,
-  `cust_code` varchar(120) NOT NULL DEFAULT 'GTW',
-  `type` varchar(8) NOT NULL DEFAULT 'STD',
-  `display_name` varchar(30) DEFAULT NULL,
-  `prive_list_col` varchar(30) NOT NULL DEFAULT 'User_def3',
-  `excel_col` int(3) DEFAULT NULL,
-  `activity` varchar(2) NOT NULL DEFAULT '是',
-  `customer_id` int(11) NOT NULL,
-  PRIMARY KEY (`price_config_id`),
-  KEY `for_customer_id` (`customer_id`),
-  CONSTRAINT `for_config_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
-SELECT * FROM d2db.priceconfig;
-
 CREATE TABLE `price` (
   `price_id` int(11) NOT NULL AUTO_INCREMENT,
   `pl_cust_code` varchar(10) NOT NULL DEFAULT 'GTW',
@@ -168,4 +152,21 @@ CREATE TABLE `price` (
   PRIMARY KEY (`price_id`),
   KEY `idx_fk_customer_id` (`customer_id`),
   CONSTRAINT `fk_price_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `priceconfig` (
+  `price_config_id` int(11) NOT NULL AUTO_INCREMENT,
+  `cust_code` varchar(120) NOT NULL DEFAULT 'GTW',
+  `type` varchar(8) NOT NULL DEFAULT 'STD',
+  `display_name` varchar(30) DEFAULT NULL,
+  `prive_list_col` varchar(30) NOT NULL DEFAULT 'User_def3',
+  `excel_col` int(3) DEFAULT NULL,
+  `activity` varchar(2) NOT NULL DEFAULT '是',
+  `price_id` int(11) NOT NULL,
+  PRIMARY KEY (`price_config_id`),
+  KEY `idx_fk_price_id` (`price_id`),
+  CONSTRAINT `fk_priceconfig_price` FOREIGN KEY (`price_id`) REFERENCES `price` (`price_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+

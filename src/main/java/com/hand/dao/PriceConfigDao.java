@@ -6,6 +6,7 @@ import org.hibernate.HibernateException;
 
 import com.hand.Entity.Priceconfig;
 import com.hand.Entity.Customer;
+import com.hand.Entity.Price;
 
 public interface PriceConfigDao {
 	/**
@@ -72,4 +73,8 @@ public interface PriceConfigDao {
 //	 */
 //	List getPriceConfigwithCandT(String cus_code,String type)throws HibernateException;
 //	
+	
+	public Price getPriceWithCandT(String Cus_code,String Cus_Type);
+	
+	
 }

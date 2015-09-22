@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-9-21 1:02:26 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-9-21 11:25:57 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.hand.Entity.Price" table="price" catalog="d2db">
         <id name="priceId" type="java.lang.Integer">
@@ -116,5 +116,11 @@
         <property name="userDef30" type="string">
             <column name="user_def30" length="20" />
         </property>
+        <set name="priceconfigs" table="priceconfig" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="price_id" not-null="true" />
+            </key>
+            <one-to-many class="com.hand.Entity.Priceconfig" />
+        </set>
     </class>
 </hibernate-mapping>

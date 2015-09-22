@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 
+import com.hand.Entity.Customer;
 import com.hand.Entity.Price;
 
 public interface PriceDao {
@@ -33,4 +34,18 @@ public interface PriceDao {
 	 * @return
 	 */
 	Price getPricewithId(Integer priceId)throws HibernateException;
+	
+	/**
+	 * 通过用户简称cus_code和类型type和工厂型号Factory获取对应的价格表信息
+	 * @param cus_code
+	 * @param type
+	 * @param Factory
+	 * @return
+	 * @throws HibernateException
+	 */
+	List getPriceWithCandTandF(String cus_code,String type,String Factory) throws HibernateException;
+	
+	Customer getCusWithCandT(String cus_code,String type) throws HibernateException;
+	
+	
 }
