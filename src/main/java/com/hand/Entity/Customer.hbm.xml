@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-9-16 16:01:39 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015-9-21 1:02:26 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.hand.Entity.Customer" table="customer" catalog="d2db">
         <id name="customerId" type="java.lang.Integer">
@@ -12,7 +12,7 @@
             <column name="organization_id" not-null="true" />
         </many-to-one>
         <property name="customerCode" type="string">
-            <column name="customer_code" length="120" not-null="true" />
+            <column name="customer_code" length="10" not-null="true" />
         </property>
         <property name="type" type="string">
             <column name="type" length="8" not-null="true" />
@@ -22,6 +22,9 @@
         </property>
         <property name="corporation" type="string">
             <column name="Corporation" length="10" />
+        </property>
+        <property name="customerName" type="string">
+            <column name="customer_name" length="120" not-null="true" />
         </property>
         <set name="payments" table="payment" inverse="true" lazy="true" fetch="select">
             <key>
@@ -48,6 +51,12 @@
                 <column name="customer_id" not-null="true" />
             </key>
             <one-to-many class="com.hand.Entity.OnDiscountAppliedRecords" />
+        </set>
+        <set name="prices" table="price" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_id" not-null="true" />
+            </key>
+            <one-to-many class="com.hand.Entity.Price" />
         </set>
         <set name="omNormalDiscounts" table="om_normal_discount" inverse="true" lazy="true" fetch="select">
             <key>

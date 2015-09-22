@@ -3,8 +3,27 @@
  <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
  "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	<package name="Discount" namespace="/discount" extends="struts-default">
+	<package name="Discount" namespace="/" extends="struts-default">
+		<action name="Discount_*" method="{1}" class="com.hand.action.DiscountAction">
+			<result name="success">/showDiscount.jsp</result>
+			<result name="update">/addDiscount.jsp</result>
+			<result name="input">/addDiscount.jsp</result>
+		</action>
 		
+		<action name="OneDiscountAction_*" method="{1}" class="com.hand.action.OneDiscountAction">
+			<result name="success">/one-time-discount.jsp</result>
+			<result name="send">/add-one-time-discount.jsp</result>
+			<result name="send2">/discount_manager.jsp</result>
+		</action>
+		
+		<action name="OnDiscountAppliedRecordsAction_*" method="{1}" class="com.hand.action.OnDiscountAppliedRecordsAction">
+			<result name="send2">/discount_manager.jsp</result>
+		</action>
+		
+		<action name="LoginAction_*" method="{1}" class="com.hand.action.LoginAction">
+			<result name="success">/customer/checkCustomers.jsp</result>
+			<result name="error">/login.jsp</result>
+		
+		</action>
 	</package>
-	
 </struts>

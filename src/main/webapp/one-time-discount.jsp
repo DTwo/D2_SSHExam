@@ -1,21 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
-	<%@page import="com.hand.Entity.OmNormalDiscount" %>
+	pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<meta name="apple-mobile-web-app-capable" content="yes" />
 <link href="resources/css/jquery-ui-themes.css" type="text/css"
 	rel="stylesheet" />
 <link href="resources/css/axure_rp_page.css" type="text/css"
 	rel="stylesheet" />
 <link href="data/styles.css" type="text/css" rel="stylesheet" />
+<link href="files/一次性折扣查询/styles.css" type="text/css" rel="stylesheet" />
 <link href="discount/bootstrap.min.css" type="text/css" rel="stylesheet" />
-<link href="files/折扣查询/styles.css" type="text/css" rel="stylesheet" />
-
 
 <script src="resources/scripts/jquery-1.7.1.min.js"></script>
 <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
@@ -45,7 +42,7 @@
 <script src="resources/scripts/axure/adaptive.js"></script>
 <script src="resources/scripts/axure/tree.js"></script>
 <script src="resources/scripts/axure/init.temp.js"></script>
-<script src="files/折扣查询/data.js"></script>
+<script src="files/一次性折扣查询/data.js"></script>
 <script src="resources/scripts/axure/legacy.js"></script>
 <script src="resources/scripts/axure/viewer.js"></script>
 <script type="text/javascript">
@@ -61,7 +58,7 @@
 </script>
 </head>
 <body>
-	<div id="base">
+	<div id="base" class="">
 
 		<!-- Unnamed (Shape) -->
 		<div id="u0" class="ax_h1">
@@ -463,7 +460,7 @@
 								<div id="u75" class="ax_tree_node treenode">
 									<!-- Unnamed (Shape) -->
 									<div id="u76" class="" selectiongroup="u5_tree_group">
-										<img id="u76_img" class="img " src="images/价格表查询/u65.png" />
+										<img id="u76_img" class="img " src="images/一次性折扣查询/u76.png" />
 										<!-- Unnamed () -->
 										<div id="u77" class="text">
 											<p>
@@ -477,9 +474,11 @@
 								<div id="u78" class="ax_tree_node treenode">
 									<!-- Unnamed (Shape) -->
 									<div id="u79" class="" selectiongroup="u5_tree_group">
+										<img id="u79_img" class="img " src="images/价格表查询/u65.png" />
+										<!-- Unnamed () -->
 										<div id="u80" class="text">
 											<p>
-												<a href="one-time-discount.jsp" onclick="location.href='one-time-discount.jsp'"><span>一次性折扣</span></a>
+												<span>一次性折扣</span>
 											</p>
 										</div>
 									</div>
@@ -806,208 +805,125 @@
 			<!-- Unnamed () -->
 			<div id="u140" class="text">
 				<p>
-					<span>主数据</span><span>管理</span><span>&gt;</span><span>折扣管理&gt;</span><span>经常性</span><span>折扣</span>
+					<span>主数据</span><span>管理</span><span>&gt;</span><span>折扣管理&gt;一</span><span>次性</span><span>折扣</span>
 				</p>
 			</div>
 		</div>
 
 		<!-- Unnamed (Horizontal Line) -->
-		<div id="u141" class="ax_horizontal_line">
-			<img id="u141_start" class="img "
-				src="resources/images/transparent.gif" alt="u141_start" /> <img
-				id="u141_end" class="img " src="resources/images/transparent.gif"
-				alt="u141_end" /> <img id="u141_line" class="img "
-				src="images/登录/u104_line.png" alt="u141_line" />
-		</div>
+		<div id="u141" class="ax_horizontal_line"></div>
 
 		<!-- Unnamed (Table) -->
-		<div id="u142"></div>
+		<div id="u142" class="ax_table">
 
-		<!-- Unnamed (Menu) -->
-
-		<!-- Unnamed (Vertical Line) -->
-		<div id="u241" class="ax_vertical_line">
-			<img id="u241_start" class="img "
-				src="resources/images/transparent.gif" alt="u241_start" /> <img
-				id="u241_end" class="img " src="resources/images/transparent.gif"
-				alt="u241_end" /> <img id="u241_line" class="img "
-				src="images/登录/u105_line.png" alt="u241_line" />
-		</div>
-
-		<form action="" method="post">
-			<div id="u242" class="ax_html_button">
-				<button type="submit" class="btn btn-default">查询</button>
-			</div>
-
-			<!-- Unnamed (Shape) -->
-			<div id="u243">
-				<label class="col-sm-5 control-label">折扣名称</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" placeholder="请输入">
-				</div>
-			</div>
-
-			<!-- Unnamed (Shape) -->
-			<div id="u246">
-				<label class="col-sm-5 control-label">类型</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" placeholder="请输入">
-				</div>
-			</div>
-
-
-			<!-- Unnamed (HTML Button) -->
-			<div id="u249" class="ax_html_button">
-				<button class="btn btn-warning" type="button" id="edit"
-					data-toggle="modal" data-target="#myModal">新增</button>
-			</div>
-		</form>
-		<!-- Unnamed (Horizontal Line) -->
-		<div id="u250" class="ax_horizontal_line">
-			<img id="u250_start" class="img "
-				src="resources/images/transparent.gif" alt="u250_start" /> <img
-				id="u250_end" class="img " src="resources/images/transparent.gif"
-				alt="u250_end" /> <img id="u250_line" class="img "
-				src="images/订单导入/u136_line.png" alt="u250_line" />
-		</div>
-
-		<div id="u223" class="col-sm-10">
 			<table class="table table-hover table-striped table-condensed">
-				<tr class="active">
-					<th>序号</th>
-					<th>折扣名称</th>
-					<th>折扣类型</th>
-					<th>折扣基准</th>
-					<th>基准数量（片）</th>
-					<th>折扣率</th>
-					<th>有效</th>
-					<th>操作</th>
-				</tr>
-				<s:iterator value="OmNormalDiscounts" id="OmNormalDiscount">
-					<form action="Discount_send.action" method="post">
-						<tr class="active">
-							<input hidden="hidden" name="ondEntity.normalId" value="${normalId}"/>
-							<input hidden="hidden" name="ondEntity.discountName" value="${discountName}"/>
-							<input hidden="hidden" name="ondEntity.type" value="${type}"/>
-							<input hidden="hidden" name="ondEntity.discountBase" value="${discountBase}"/>
-							<input hidden="hidden" name="ondEntity.baseQty" value="${baseQty}"/>
-							<input hidden="hidden" name="ondEntity.discountRate" value="${discountRate}"/>
-							<input hidden="hidden" name="ondEntity.activity" value="${activity}"/>
-							<td><s:property value="normalId" /></td>
-							<td><s:property value="discountName" /></td>
-							<td><s:property value="type" /></td>
-							<td><s:property value="discountBase" /></td>
-							<td><s:if test="%{baseQty==null}">
-								-
-							</s:if> <s:else>
-									<s:property value="baseQty" />
-								</s:else></td>
-							<td>${discountRate/100}</td>
-							<td><s:property value="activity" /></td>
-							<td><button class="btn btn-default col-sm-12 btn-warning"
-									type="submit">编辑</button></td>
+				<s:if test="%{omSpecialDiscounts!=null}">
+					<tr>
+						<th>序号</th>
+						<th>折扣名称</th>
+						<th>客户代码</th>
+						<th>折扣金额</th>
+						<th>已用金额</th>
+						<th>折扣余额</th>
+						<th>有效</th>
+						<th>操作</th>
+						<th>记录</th>
+					</tr>
+
+					<s:iterator value="omSpecialDiscounts">
+						<form action="OneDiscountAction_send.action" method="post">
+							<tr class="active">
+								<input hidden="hidden" name="omSpecialDiscount.specialId"
+									value="${specialId}" />
+								<input hidden="hidden" name="omSpecialDiscount.discountName"
+									value="${discountName}" />
+								<input hidden="hidden" name="omSpecialDiscount.custCode"
+									value="${custCode}" />
+								<input hidden="hidden" name="omSpecialDiscount.amount"
+									value="${amount}" />
+								<input hidden="hidden" name="omSpecialDiscount.appliedAmount"
+									value="${appliedAmount}" />
+								<input hidden="hidden" name="omSpecialDiscount.balance"
+									value="${balance}" />
+								<input hidden="hidden" name="omSpecialDiscount.activity"
+									value="${activity}" />
+								<td><s:property value="specialId"></s:property></td>
+								<td><s:property value="discountName"></s:property></td>
+								<td><s:property value="custCode"></s:property></td>
+								<td><s:property value="amount"></s:property></td>
+								<td><s:property value="appliedAmount"></s:property></td>
+								<td><s:property value="balance"></s:property></td>
+								<td><s:property value="activity"></s:property></td>
+								<td><button type="submit" class="btn btn-default">编辑</button></td>
+						</form>
+						<form action="OnDiscountAppliedRecordsAction_select.action"
+							method="post">
+							<input hidden="hidden" name="omSpecialDiscount.custCode"
+								value="${custCode}" /> <input hidden="hidden"
+								name="omSpecialDiscount.amount" value="${amount}" /> <input
+								hidden="hidden" name="omSpecialDiscount.appliedAmount"
+								value="${appliedAmount}" /> <input hidden="hidden"
+								name="omSpecialDiscount.discountName" value="${discountName}" />
+						<td><button type="submit" class="btn btn-default">查看</button></td>
+						</form>
 						</tr>
-					</form>
-				</s:iterator>
+					</s:iterator>
+				</s:if>
 			</table>
 		</div>
-	</div>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">新增经常性折扣</h4>
-				</div>
-				<form role="form" class="form-horizontal"
-					action="Discount_addOmNormalDiscount.action" method="post">
-					<div class="container">
-						<div class="modal-body">
-							<div class="form-group">
-								<label class="col-xs-2 control-label">折扣名称</label>
-								<div class="col-xs-4">
-									<input type="text" class="form-control"
-										name="ondEntity.discountName" placeholder="请输入" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-xs-2 control-label">折扣类型</label>
-								<div class="col-xs-4">
-									<input type="text" class="form-control" placeholder="请输入"
-										name="ondEntity.type">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-xs-2 control-label">折扣基准</label>
-								<div class="col-xs-4">
-									<select name="ondEntity.discountBase">
-										<option>金额</option>
-										<option>数量</option>
-										<option>单价</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-xs-2 control-label">基准数量（片）</label>
-								<div class="col-xs-4">
-									<input type="test" class="form-control" placeholder="请输入整数"
-										name="ondEntity.baseQty">
-								</div>
-							</div>
-							<div class="form-group ">
-								<label class="col-xs-2 control-label">折扣率</label>
 
-								<div class="input-group  col-xs-4">
-									<span class="input-group-addon">%</span> <input type="test"
-										class="form-control" placeholder="请输入整数"
-										name="ondEntity.discountRate">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-xs-2 control-label">有效</label>
-								<div class="col-xs-4">
-									<label><input name="ondEntity.activity" type="radio"
-										value="是" checked="checked" />是</label> <label><input
-										name="ondEntity.activity" type="radio" value="否" />否</label>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Save
-							changes</button>
-					</div>
-				</form>
-			</div>
+		<!-- Unnamed (Menu) -->
+		<div id="u233" class="ax_menu"></div>
+
+		<!-- Unnamed (Vertical Line) -->
+		<div id="u253" class="ax_vertical_line">
+			<img id="u253_start" class="img "
+				src="resources/images/transparent.gif" alt="u253_start" /> <img
+				id="u253_end" class="img " src="resources/images/transparent.gif"
+				alt="u253_end" /> <img id="u253_line" class="img "
+				src="images/登录/u105_line.png" alt="u253_line" />
 		</div>
+
+		<!-- Unnamed (HTML Button) -->
+		<form action="OneDiscountAction_select.action" method="post">
+			<div id="u254">
+				<button class="btn btn-default" type="submit">查询</button>
+			</div>
+
+			<div id="u255" class="ax_paragraph">
+				<!-- Unnamed () -->
+				<div id="u256">
+					<p>
+						<span>折扣名称</span>
+					</p>
+				</div>
+			</div>
+
+			<!-- Unnamed (Text Field) -->
+			<div id="u257" class="ax_text_field">
+				<input class="form-control" type="text" value="" />
+			</div>
+
+			<!-- Unnamed (HTML Button) -->
+			<div id="u258" class="ax_html_button">
+				<button class="btn btn-default" type="button">新增</button>
+			</div>
+
+			<!-- Unnamed (Shape) -->
+			<div id="u260" class="ax_paragraph">
+				<!-- Unnamed () -->
+				<div id="u261" class="text">
+					<p>
+						<span>客户代码</span>
+					</p>
+				</div>
+			</div>
+			<!-- Unnamed (Text Field) -->
+			<div id="u262" class="ax_text_field">
+				<input class="form-control" type="text" value="" name="cust_code" />
+			</div>
+		</form>
 	</div>
 
-	<script type="text/javascript" src="discount/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="discount/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$('#myModal').on('shown.bs.modal', function() {
-			$('#myInput').focus()
-		})
-		$('#chostype1').on('click', function() {
-			var temp = $('#chostype1').text();
-			$('#discountBase').text(temp);
-			$('#discountBase').val(temp)
-		})
-		$('#chostype2').on('click', function() {
-			var temp = $('#chostype2').text();
-			$('#discountBase').text(temp);
-			$('#discountBase').val(temp)
-		})
-		$('#chostype3').on('click', function() {
-			var temp = $('#chostype3').text();
-			$('#discountBase').text(temp);
-			$('#discountBase').val(temp);
-		})
-	</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 package com.hand.Entity;
-// Generated 2015-9-16 16:01:39 by Hibernate Tools 3.4.0.CR1
+// Generated 2015-9-21 1:02:26 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,37 +15,42 @@ public class Customer implements java.io.Serializable {
 	private String type;
 	private String groupCompany;
 	private String corporation;
+	private String customerName;
 	private Set payments = new HashSet(0);
 	private Set omSpecialDiscounts = new HashSet(0);
 	private Address address;
 	private Set priceconfigs = new HashSet(0);
 	private Linkman linkman;
 	private Set onDiscountAppliedRecordses = new HashSet(0);
+	private Set prices = new HashSet(0);
 	private Set omNormalDiscounts = new HashSet(0);
 
 	public Customer() {
 	}
 
-	public Customer(Organization organization, String customerCode, String type) {
+	public Customer(Organization organization, String customerCode, String type, String customerName) {
 		this.organization = organization;
 		this.customerCode = customerCode;
 		this.type = type;
+		this.customerName = customerName;
 	}
 
 	public Customer(Organization organization, String customerCode, String type, String groupCompany,
-			String corporation, Set payments, Set omSpecialDiscounts, Address address, Set priceconfigs,
-			Linkman linkman, Set onDiscountAppliedRecordses, Set omNormalDiscounts) {
+			String corporation, String customerName, Set payments, Set omSpecialDiscounts, Address address,
+			Set priceconfigs, Linkman linkman, Set onDiscountAppliedRecordses, Set prices, Set omNormalDiscounts) {
 		this.organization = organization;
 		this.customerCode = customerCode;
 		this.type = type;
 		this.groupCompany = groupCompany;
 		this.corporation = corporation;
+		this.customerName = customerName;
 		this.payments = payments;
 		this.omSpecialDiscounts = omSpecialDiscounts;
 		this.address = address;
 		this.priceconfigs = priceconfigs;
 		this.linkman = linkman;
 		this.onDiscountAppliedRecordses = onDiscountAppliedRecordses;
+		this.prices = prices;
 		this.omNormalDiscounts = omNormalDiscounts;
 	}
 
@@ -97,6 +102,14 @@ public class Customer implements java.io.Serializable {
 		this.corporation = corporation;
 	}
 
+	public String getCustomerName() {
+		return this.customerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
 	public Set getPayments() {
 		return this.payments;
 	}
@@ -143,6 +156,14 @@ public class Customer implements java.io.Serializable {
 
 	public void setOnDiscountAppliedRecordses(Set onDiscountAppliedRecordses) {
 		this.onDiscountAppliedRecordses = onDiscountAppliedRecordses;
+	}
+
+	public Set getPrices() {
+		return this.prices;
+	}
+
+	public void setPrices(Set prices) {
+		this.prices = prices;
 	}
 
 	public Set getOmNormalDiscounts() {

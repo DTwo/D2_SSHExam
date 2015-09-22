@@ -9,15 +9,17 @@ CREATE TABLE `organization` (
 
 CREATE TABLE `customer` (
   `customer_id` int(11) NOT NULL AUTO_INCREMENT,
-  `customer_code` varchar(120) NOT NULL DEFAULT 'GTW',
+  `customer_code` varchar(10) NOT NULL DEFAULT 'GTW',
   `type` varchar(8) NOT NULL DEFAULT 'STD',
   `Group_company` varchar(10) DEFAULT NULL,
   `Corporation` varchar(10) DEFAULT NULL,
   `organization_id` int(11) NOT NULL,
+  `customer_name` varchar(120) NOT NULL DEFAULT 'Greate Tesla World Co.,Ltd',
   PRIMARY KEY (`customer_id`),
   KEY `for_origanization_id` (`organization_id`),
   CONSTRAINT `for_origanization_id` FOREIGN KEY (`organization_id`) REFERENCES `organization` (`organization_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `address` (
   `address_id` int(11) NOT NULL,
@@ -108,7 +110,7 @@ CREATE TABLE `payment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `priceconfig` (
-  `price_config_id` int(11) NOT NULL,
+  `price_config_id` int(11) NOT NULL AUTO_INCREMENT,
   `cust_code` varchar(120) NOT NULL DEFAULT 'GTW',
   `type` varchar(8) NOT NULL DEFAULT 'STD',
   `display_name` varchar(30) DEFAULT NULL,
@@ -119,7 +121,7 @@ CREATE TABLE `priceconfig` (
   PRIMARY KEY (`price_config_id`),
   KEY `for_customer_id` (`customer_id`),
   CONSTRAINT `for_config_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `price` (
@@ -160,5 +162,5 @@ CREATE TABLE `price` (
   `user_def29` varchar(20) DEFAULT NULL,
   `user_def30` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`price_id`),
-  CONSTRAINT `for_config_id` FOREIGN KEY (`price_id`) REFERENCES `priceconfig` (`price_config_id`) ON UPDATE CASCADE
+  CONSTRAINT `fk_price_priceconfig` FOREIGN KEY (`price_id`) REFERENCES `priceconfig` (`price_config_id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

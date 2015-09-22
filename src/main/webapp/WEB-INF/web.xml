@@ -16,6 +16,7 @@
 		<param-value>
 			classpath:spring.xml
 			classpath:spring-hibernate.xml
+			classpath:Discount_spring.xml
 		</param-value>
 	</context-param>
 	<listener>

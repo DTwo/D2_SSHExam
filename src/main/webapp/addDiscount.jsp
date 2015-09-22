@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,6 +12,7 @@
 	rel="stylesheet" />
 <link href="data/styles.css" type="text/css" rel="stylesheet" />
 <link href="files/折扣新增/styles.css" type="text/css" rel="stylesheet" />
+<link href="discount/bootstrap.min.css" type="text/css" rel="stylesheet" />
 <script src="resources/scripts/jquery-1.7.1.min.js"></script>
 <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
 <script src="resources/scripts/axure/axQuery.js"></script>
@@ -471,12 +473,9 @@
 								<div id="u78" class="ax_tree_node treenode">
 									<!-- Unnamed (Shape) -->
 									<div id="u79" class="" selectiongroup="u5_tree_group">
-										<img id="u79_img" class="img "
-											src="resources/images/transparent.gif" />
-										<!-- Unnamed () -->
 										<div id="u80" class="text">
 											<p>
-												<span>一次性折扣</span>
+												<a href="one-time-discount.jsp" onclick="location.href='one-time-discount.jsp'"><span>一次性折扣</span></a>
 											</p>
 										</div>
 									</div>
@@ -817,171 +816,71 @@
 				src="images/登录/u104_line.png" alt="u141_line" />
 		</div>
 
-		<!-- Unnamed (Table) -->
-		<div id="u142" class="ax_table">
-
-			<!-- Unnamed (Table Cell) -->
-			<div id="u143" class="ax_table_cell">
-				<img id="u143_img" class="img " src="images/折扣新增/u143.png" />
-				<!-- Unnamed () -->
-				<div id="u144" class="text">
-					<p>
-						<span>1</span>
-					</p>
-				</div>
-			</div>
-
-			<!-- Unnamed (Table Cell) -->
-			<div id="u145" class="ax_table_cell">
-				<img id="u145_img" class="img " src="images/折扣新增/u145.png" />
-				<!-- Unnamed () -->
-				<div id="u146" class="text">
-					<p>
-						<span>3%折扣</span>
-					</p>
-				</div>
-			</div>
-
-			<!-- Unnamed (Table Cell) -->
-			<div id="u147" class="ax_table_cell">
-				<img id="u147_img" class="img " src="images/折扣新增/u147.png" />
-				<!-- Unnamed () -->
-				<div id="u148" class="text">
-					<p>
-						<span>一般折扣</span>
-					</p>
-				</div>
-			</div>
-
-			<!-- Unnamed (Table Cell) -->
-			<div id="u149" class="ax_table_cell">
-				<img id="u149_img" class="img " src="images/折扣新增/u149.png" />
-				<!-- Unnamed () -->
-				<div id="u150" class="text">
-					<p>
-						<span>金额</span>
-					</p>
-				</div>
-			</div>
-
-			<!-- Unnamed (Table Cell) -->
-			<div id="u151" class="ax_table_cell">
-				<img id="u151_img" class="img " src="images/折扣新增/u151.png" />
-				<!-- Unnamed () -->
-				<div id="u152" class="text">
-					<p>
-						<span></span>
-					</p>
-				</div>
-			</div>
-
-			<!-- Unnamed (Table Cell) -->
-			<div id="u153" class="ax_table_cell">
-				<img id="u153_img" class="img " src="images/折扣新增/u153.png" />
-				<!-- Unnamed () -->
-				<div id="u154" class="text">
-					<p>
-						<span>-0.03</span>
-					</p>
-				</div>
-			</div>
-
-			<!-- Unnamed (Table Cell) -->
-			<div id="u155" class="ax_table_cell">
-				<img id="u155_img" class="img " src="images/折扣新增/u155.png" />
-				<!-- Unnamed () -->
-				<div id="u156" class="text">
-					<p>
-						<span>是</span>
-					</p>
-				</div>
-			</div>
-		</div>
 
 		<!-- Unnamed (Menu) -->
+
 		<div id="u157" class="ax_menu">
-			<img id="u157_menu" class="img " src="images/折扣新增/u157_menu.png"
-				alt="u157_menu" />
-
-			<!-- Unnamed (Table) -->
-			<div id="u158" class="ax_table">
-
-				<!-- Unnamed (Menu Item) -->
-				<div id="u159" class="ax_table_cell">
-					<img id="u159_img" class="img " src="images/折扣查询/u225.png" />
-					<!-- Unnamed () -->
-					<div id="u160" class="text">
-						<p>
-							<span>序</span><span>号</span>
-						</p>
-					</div>
-				</div>
-
-				<!-- Unnamed (Menu Item) -->
-				<div id="u161" class="ax_table_cell">
-					<img id="u161_img" class="img " src="images/折扣查询/u227.png" />
-					<!-- Unnamed () -->
-					<div id="u162" class="text">
-						<p>
-							<span>折扣名称</span>
-						</p>
-					</div>
-				</div>
-
-				<!-- Unnamed (Menu Item) -->
-				<div id="u163" class="ax_table_cell">
-					<img id="u163_img" class="img " src="images/折扣查询/u229.png" />
-					<!-- Unnamed () -->
-					<div id="u164" class="text">
-						<p>
-							<span>折扣类型</span>
-						</p>
-					</div>
-				</div>
-
-				<!-- Unnamed (Menu Item) -->
-				<div id="u165" class="ax_table_cell">
-					<img id="u165_img" class="img " src="images/折扣查询/u231.png" />
-					<!-- Unnamed () -->
-					<div id="u166" class="text">
-						<p>
-							<span>折扣基准</span>
-						</p>
-					</div>
-				</div>
-
-				<!-- Unnamed (Menu Item) -->
-				<div id="u167" class="ax_table_cell">
-					<img id="u167_img" class="img " src="images/折扣查询/u233.png" />
-					<!-- Unnamed () -->
-					<div id="u168" class="text">
-						<p>
-							<span>基准数量（片）</span>
-						</p>
-					</div>
-				</div>
-
-				<!-- Unnamed (Menu Item) -->
-				<div id="u169" class="ax_table_cell">
-					<img id="u169_img" class="img " src="images/折扣查询/u235.png" />
-					<!-- Unnamed () -->
-					<div id="u170" class="text">
-						<p>
-							<span>折扣率</span>
-						</p>
-					</div>
-				</div>
-
-				<!-- Unnamed (Menu Item) -->
-				<div id="u171" class="ax_table_cell">
-					<img id="u171_img" class="img " src="images/折扣新增/u171.png" />
-					<!-- Unnamed () -->
-					<div id="u172" class="text">
-						<p>
-							<span>有效</span>
-						</p>
-					</div>
-				</div>
+			<div id="u158">
+				<table class="table table-hover table-striped table-condensed">
+					<tr class="active">
+						<th>序号</th>
+						<th>折扣名称</th>
+						<th>折扣类型</th>
+						<th>折扣基准</th>
+						<th>基准数量（片）</th>
+						<th>折扣率</th>
+						<th>有效</th>
+						<th>操作</th>
+					</tr>
+					<form action="Discount_updateOmNormalDiscount.action" method="post">
+						<tr class="active">
+							<%-- <input hidden="hidden" name="ondEntity.normalId"
+								value="${normalId}" />
+							<input hidden="hidden" name="ondEntity.discountName"
+								value="${discountName}" />
+							<input hidden="hidden" name="ondEntity.type" value="${type}" />
+							<input hidden="hidden" name="ondEntity.discountBase"
+								value="${discountBase}" />
+							<input hidden="hidden" name="ondEntity.baseQty"
+								value="${baseQty}" />
+							<input hidden="hidden" name="ondEntity.discountRate"
+								value="${discountRate}" />
+							<input hidden="hidden" name="ondEntity.activity"
+								value="${activity}" /> --%>
+							<td><input class="form-control" type="text"
+								value="<s:property value="ondEntity.normalId" />"
+								readonly="readonly" name="ondEntity.normalId"
+								style="width: 100px"></td>
+							<td><input class="form-control" type="text"
+								value="<s:property value="ondEntity.discountName"/>"
+								name="ondEntity.discountName" style="width: 100px"></td>
+							<td><input class="form-control" type="text"
+								value="<s:property value="ondEntity.type"/>"
+								name="ondEntity.type" style="width: 100px"></td>
+							<td><input class="form-control" type="text"
+								value="<s:property value="ondEntity.discountBase"/>"
+								name="ondEntity.discountBase" style="width: 100px" /></td>
+							<td><s:if test="%{ondEntity.baseQty==null}">
+									<input class="form-control" type="text" value=""
+										name="ondEntity.baseQty" style="width: 100px" />
+								</s:if> <s:else>
+									<input class="form-control" type="text"
+										value="<s:property value="ondEntity.baseQty" />"
+										name="ondEntity.baseQty" style="width: 100px" />
+								</s:else></td>
+							<td><input class="form-control" type="text"
+								value="${ondEntity.discountRate}" name="ondEntity.discountRate"
+								style="width: 100px" /></td>
+							<td ><div class="col-xs-12 form-control" style="width: 100px">
+									<label><input name="ondEntity.activity" type="radio"
+										value="是" checked="checked" />是</label> <label><input
+										name="ondEntity.activity" type="radio" value="否" />否</label>
+								</div></td>
+							<td><button class="btn btn-default col-sm-12 btn-warning"
+									type="submit" style="width: 100px">保存</button></td>
+						</tr>
+					</form>
+				</table>
 			</div>
 		</div>
 
@@ -992,41 +891,6 @@
 				id="u173_end" class="img " src="resources/images/transparent.gif"
 				alt="u173_end" /> <img id="u173_line" class="img "
 				src="images/登录/u105_line.png" alt="u173_line" />
-		</div>
-
-		<!-- Unnamed (HTML Button) -->
-		<div id="u174" class="ax_html_button">
-			<input id="u174_input" type="submit" value="保存" />
-		</div>
-
-		<!-- Unnamed (Shape) -->
-		<div id="u175" class="ax_paragraph">
-			<img id="u175_img" class="img "
-				src="resources/images/transparent.gif" />
-			<!-- Unnamed () -->
-			<div id="u176" class="text">
-				<p>
-					<span>★</span><span>备注：</span>
-				</p>
-				<p>
-					<span>1.折扣名称：输入文本，任意</span>
-				</p>
-				<p>
-					<span>2.折扣类型：LOV选择，一般折扣、通用加价</span><span>；选择加价时，默认折扣基准为“数量”；选择一般折扣时，折扣基准默认为“金额”</span>
-				</p>
-				<p>
-					<span>3.折扣基准：LOV选择，金额、单价、数量</span>
-				</p>
-				<p>
-					<span>4.</span><span>基准数量（片）：输入整数数字；当折扣基准为“数量”时可以输入，“金额”或“单价”基准时不能输入。</span>
-				</p>
-				<p>
-					<span>5.折扣率：输入数字，百分比用小数表示，正数为加价，负数为折扣。</span>
-				</p>
-				<p>
-					<span>6.有效：默认为“是”</span>
-				</p>
-			</div>
 		</div>
 
 		<!-- Unnamed (Shape) -->
@@ -1050,5 +914,6 @@
 				src="images/订单导入/u136_line.png" alt="u179_line" />
 		</div>
 	</div>
+	
 </body>
 </html>
