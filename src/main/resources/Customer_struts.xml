@@ -5,6 +5,16 @@
 <struts>
 	
 	<package name="Customer" namespace="/customer" extends="struts-default">
-		
+		<action name="customer" class="com.hand.action.CustomerAction">
+			<result name="success">/customer/checkCustomers.jsp</result>
+		</action>
+		<action name="*_*" class="com.hand.action.{1}Action" method="{2}">
+			<result name="success">/index.jsp</result>
+			<result name="get">/customer/getDtailCustomer.jsp</result>
+			<result name="show">/customer/editCustomer.jsp</result>
+		</action>
+		<action name="test" class="com.hand.action.CheckCustomerAction" method="getCustomer">
+			<result name="get">/getDtailCustomer.jsp</result>
+		</action>
 	</package>	
 </struts>
