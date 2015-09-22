@@ -59,7 +59,7 @@ $(document).ready(function(){
 					//alert($(this).text());
 					//alert($(this).attr("id"));
 					$("#select_addr").text($(this).text());
-					$("#select_addr").append('<span class="hidden cusId">'+$(this).attr("id")+'</span>');
+					//$("#select_addr").append('<span class="hidden cusId">'+$(this).attr("id")+'</span>');
 				})
 			}
 		});
@@ -73,21 +73,22 @@ $(document).ready(function(){
 		//从模态框获取数据
 		var customerId = $("#select_addr").find(".cusId").text();
 		var customerCode = $("#select_addr").text();
-		//alert(customerCode);
+		alert(customerCode);
 		var cusType = $("#cusType").val();
-		alert("cusCode:"+customerCode+"cusType:"+cusType);
-		var displayName = $("#displayName").val();
-		var excelcol = $("#Excelcol").val();
-		var Plcol = $("#select_PLcol").text();
+		//alert("cusCode:"+customerCode+"cusType:"+cusType);
+		//var displayName = $("#displayName").val();
+		var factoryNum = $("#factoryNum").val();
+		var effective_date_from = $("#effective_date_from").val();
+		var effective_date_to = $("#effective_date_to").val();
 		$.ajax({
 			url:server_context+"/PriceConfig_addPriceConfig.action",
 			data:{
 				customerId:customerId,
 				cus_code:customerCode,
 				type:cusType,
-				displayName:displayName,
-				excelcol:excelcol,
-				privelistcol:Plcol,
+				factoryNum:factoryNum,
+				effective_date_from:effective_date_from,
+				effective_date_to:effective_date_to,
 				activity:"是"
 				},
 			dataType:'json',

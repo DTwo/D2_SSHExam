@@ -51,11 +51,11 @@ public interface PriceConfigDao {
 	public Customer getCustomerwithCandT(String cust_code,String type);
 	
 	/**
-	 * 通过用户Id取得指定的Customer
-	 * @param customerId   -->用户Id
+	 * 通过Id取得指定的Price
+	 * @param priceId
 	 * @return
 	 */
-	public Customer getCustomerwithId(Integer customerId);
+	public Price getPricewithId(Integer priceId);
 	
 	/**
 	 * 获取客户列表，用于添加新增客户配置
@@ -76,5 +76,7 @@ public interface PriceConfigDao {
 	
 	public Price getPriceWithCandT(String Cus_code,String Cus_Type);
 	
+	
+	public Price getPricewithCandTandF(String Cus_code,String Cus_type,String factory);
 	
 }

@@ -349,7 +349,7 @@ public class PriceAction extends ActionSupport{
 							default:  
 								cellValue = "错误";  
 							}  
-							System.out.print(cellValue + "    " + "test"); 
+							System.out.print(cellValue + "    "); 
 						}
 						else{
 							//当前单元格为空时的逻辑操作

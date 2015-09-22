@@ -1,6 +1,7 @@
 package com.hand.action;
 
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import com.hand.Entity.Customer;
 import com.hand.Entity.Price;
 import com.hand.Entity.Priceconfig;
 import com.hand.service.PriceConfigService;
+import com.hand.service.PriceService;
 import com.opensymphony.xwork2.ActionSupport;
 
 import net.sf.json.JSONArray;
@@ -22,24 +24,39 @@ public class PriceConfigAction extends ActionSupport{
 
 	@Autowired
 	private PriceConfigService PriceConfigService;
+	@Autowired
+	private PriceService priceService;
 	
 	//接收新增客户配置页面数据
 	private String customerId;
 	private String cus_code;
 	private String type;
-	private String displayName;
-	private String excelcol;
+	private String factoryNum;
+	private String effective_date_from;
 	private String activity;
-	private String privelistcol;
+	private String effective_date_to;
 	
 	
 	
 	
-	public String getPrivelistcol() {
-		return privelistcol;
+
+	public String getFactoryNum() {
+		return factoryNum;
 	}
-	public void setPrivelistcol(String privelistcol) {
-		this.privelistcol = privelistcol;
+	public void setFactoryNum(String factoryNum) {
+		this.factoryNum = factoryNum;
+	}
+	public String getEffective_date_from() {
+		return effective_date_from;
+	}
+	public void setEffective_date_from(String effective_date_from) {
+		this.effective_date_from = effective_date_from;
+	}
+	public String getEffective_date_to() {
+		return effective_date_to;
+	}
+	public void setEffective_date_to(String effective_date_to) {
+		this.effective_date_to = effective_date_to;
 	}
 	public String getActivity() {
 		return activity;
@@ -52,18 +69,6 @@ public class PriceConfigAction extends ActionSupport{
 	}
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
-	}
-	public String getDisplayName() {
-		return displayName;
-	}
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
-	}
-	public String getExcelcol() {
-		return excelcol;
-	}
-	public void setExcelcol(String excelcol) {
-		this.excelcol = excelcol;
 	}
 	public String getCus_code() {
 		return cus_code;
@@ -81,16 +86,55 @@ public class PriceConfigAction extends ActionSupport{
 		//获取当前指定的客户来配置价格表
 		System.out.println("in addPriceConfig");
 		//Customer forPriceConfig = PriceConfigService.getCustomerforPriceConfig(Integer.valueOf(customerId));
-		Price forPriceConfig = PriceConfigService.getPricewithCandT(cus_code, type);
+		//先保存Price表
+		System.out.println(cus_code);
+		Customer forPriceConfig = priceService.getCusWithCandT(cus_code, type);
+		Price newprice = new Price();
+		newprice.setCustomer(forPriceConfig);
+		newprice.setPlCustCode(forPriceConfig.getCustomerCode());
+		newprice.setType(forPriceConfig.getType());
+		newprice.setPlYhItem(factoryNum);
+		try {
+			SimpleDateFormat temp=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+			newprice.setEffectiveDateFrom(temp.parse(effective_date_from));
+			newprice.setEffectiveDateTo(temp.parse(effective_date_to));
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		if(priceService.addPrice(newprice)){
+			outputJson("success");
+		}
+		//再将price表的工厂列，有效日期从列，有效日期到列添加到priceconfig表
+		Price priceforPriceConfig = PriceConfigService.getPricewithCandTandF(cus_code, type,factoryNum);
 		Priceconfig priceConfig = new Priceconfig();
 		priceConfig.setCustCode(cus_code);
-		priceConfig.setDisplayName(displayName);
+		priceConfig.setDisplayName("工厂型号");
 		priceConfig.setType(type);
-		priceConfig.setExcelCol(Integer.valueOf(excelcol));
+		priceConfig.setExcelCol(2);
 		priceConfig.setActivity(activity);
-		priceConfig.setPriveListCol(privelistcol);
-		priceConfig.setPrice(forPriceConfig);
-		if(PriceConfigService.addPriceConfig(priceConfig)){
+		priceConfig.setPriveListCol("PL_YH_ITEM");
+		priceConfig.setPrice(priceforPriceConfig);
+		Priceconfig priceConfig1 = new Priceconfig();
+		priceConfig1.setPrice(priceforPriceConfig);
+		priceConfig1.setCustCode(cus_code);
+		priceConfig1.setType(type);
+		priceConfig1.setExcelCol(3);
+		priceConfig1.setDisplayName("有效日期从");
+		priceConfig1.setPriveListCol("effective_date_from");
+		priceConfig1.setActivity(activity);
+		
+		Priceconfig priceConfig2 = new Priceconfig();
+		priceConfig2.setPrice(priceforPriceConfig);
+		priceConfig2.setCustCode(cus_code);
+		priceConfig2.setType(type);
+		priceConfig2.setExcelCol(4);
+		priceConfig2.setDisplayName("有效日期至");
+		priceConfig2.setPriveListCol("effective_date_to");
+		priceConfig2.setActivity(activity);
+		
+		if(PriceConfigService.addPriceConfig(priceConfig)&&
+				PriceConfigService.addPriceConfig(priceConfig1)&&
+					PriceConfigService.addPriceConfig(priceConfig2)){
 			System.out.println("插入成功");
 			outputJson("true");
 		}

@@ -28,8 +28,8 @@ public class PriceConfigServiceImpl implements PriceConfigService{
 		}
 		return bool;
 	}
-	public Customer getCustomerforPriceConfig(Integer customerId){
-		return PriceConfigDao.getCustomerwithId(customerId);
+	public Price getPriceforPriceConfig(Integer priceId){
+		return PriceConfigDao.getPricewithId(priceId);
 	}
 	public List getPriceConfigList() {
 		return PriceConfigDao.getPriceConfigList();
@@ -42,5 +42,8 @@ public class PriceConfigServiceImpl implements PriceConfigService{
 	}
 	public List getCusListWithCandT(String Cus_code, String Type) {
 		return PriceConfigDao.getPriceConfigwithCandT(Cus_code, Type);
+	}
+	public Price getPricewithCandTandF(String Cus_code, String Type, String factory) {
+		return PriceConfigDao.getPricewithCandTandF(Cus_code, Type, factory);
 	}
 }

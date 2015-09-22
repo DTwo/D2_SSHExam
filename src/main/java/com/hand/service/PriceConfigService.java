@@ -22,11 +22,11 @@ public interface PriceConfigService {
 	List getPriceConfigList();
 	
 	/**
-	 * 获取指定Customer
-	 * @param customerId
+	 * 获取指定Price
+	 * @param priceId
 	 * @return
 	 */
-	public Customer getCustomerforPriceConfig(Integer customerId);
+	public Price getPriceforPriceConfig(Integer priceId);
 	
 	/**
 	 * 获取Customer列表信息
@@ -43,6 +43,8 @@ public interface PriceConfigService {
 	 */
 	public Price getPricewithCandT(String Cus_code,String Type);
 	
+	
+	public Price getPricewithCandTandF(String Cus_code,String Type,String factory);
 	
 	public List getCusListWithCandT(String Cus_code,String Type);
 	

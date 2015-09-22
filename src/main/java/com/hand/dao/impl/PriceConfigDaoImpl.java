@@ -88,5 +88,20 @@ public class PriceConfigDaoImpl implements PriceConfigDao{
 		query.setParameter("Cus_type", Cus_Type);
 		return (Price) query.list().get(0);
 	}
+
+	public Price getPricewithId(Integer priceId) {
+		Session session = sessionFactory.getCurrentSession();
+		return (Price) session.get(Price.class,priceId);
+	}
+
+	public Price getPricewithCandTandF(String Cus_code, String Cus_type, String factory) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "FROM Price WHERE plCustCode =:Cus_Code AND type =:Cus_type AND plYhItem=:Cus_factory";
+		Query query = session.createQuery(hql);
+		query.setParameter("Cus_Code", Cus_code);
+		query.setParameter("Cus_type", Cus_type);
+		query.setParameter("Cus_factory",factory);
+		return (Price) query.list().get(0);
+	}
 	
 }
