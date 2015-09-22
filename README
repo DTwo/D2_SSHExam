@@ -1,0 +1,20 @@
+mvn compile
+
+mvn tomcat:run
+
+折扣模块：
+1、经常性折扣入口
+http://localhost:8080/D2_SSHExam/Discount_showOmNormalDiscounts.action
+2、一次性折扣入口
+http://localhost:8080/D2_SSHExam/one-time-discount.jsp   
+
+
+
+
+价格管理模块：
+入口：localhost:8080/D2_SSHExam/index.html
+价格配置：
+http://localhost:8080/D2_SSHExam/index.html#p=%E6%96%B0%E5%A2%9E%E9%85%8D%E7%BD%AE
+价格表
+http://localhost:8080/D2_SSHExam/index.html#p=%E4%BB%B7%E6%A0%BC%E8%A1%A8%E6%9F%A5%E8%AF%A2
+
